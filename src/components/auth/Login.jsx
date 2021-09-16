@@ -24,7 +24,7 @@ export default function Login() {
           </Typography>
           <TextField type="email" fullWidth placeholder="Correo electrónico" />
           <Space mt="10" />
-          <ContainedButton color="primary" size="lg" fullWidth>
+          <ContainedButton color="primary" size="lg" fullWidth disabled>
             Iniciar sesión
           </ContainedButton>
         </Card>
