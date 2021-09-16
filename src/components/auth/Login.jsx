@@ -12,6 +12,10 @@ import { Typography } from "../../styled/Typography";
 
 export default function Login() {
 
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   function renderUI() {
     return (
       <FlexContainer fullHeight center middle>
@@ -22,7 +26,7 @@ export default function Login() {
           <Typography centered size="1.5" weight="700">
             Monitorea tu dinero y ahorra
           </Typography>
-          <form>
+          <form onSubmit={handleSubmit}>
             <TextField
               type="email"
               fullWidth
@@ -35,7 +39,6 @@ export default function Login() {
               color="primary"
               size="lg"
               fullWidth
-              disabled
             >
               Iniciar sesión
             </ContainedButton>
