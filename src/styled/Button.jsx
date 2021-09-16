@@ -6,10 +6,12 @@ export const Button = styled.button`
   padding: ${props =>
     props.size ?
       props.theme.components.button.size[props.size] :
-      props.theme.components.button.size["sm"]};
+      props.theme.components.button.size.sm};
   border-radius: ${props => props.theme.borderRadius};
   font-weight: 500;
+  width: ${props => props.fullWidth && "100%"};
   color: inherit;
+  font-size: ${props => props.theme.components.button.fontSize};
   cursor: pointer;
 `;
 export const ContainedButton = styled(Button)`

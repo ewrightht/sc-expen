@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
+  width: ${props => 
+    props.size ?
+      props.theme.components.card.size[props.size] 
+      : props.theme.components.card.size.sm};
   background: white;
-  box-shadow: 0px 3px 5px #dcdcdc;
+  box-shadow: ${props => props.theme.boxShadow};
   padding: 20px;
-  border-radius: ${props => props.borderRadius};
+  border-radius: ${props => props.theme.borderRadius};
 `;

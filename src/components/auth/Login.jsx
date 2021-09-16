@@ -8,8 +8,12 @@ export default function Login() {
   function renderUI() {
     return (
       <FlexContainer fullHeight center middle>
-        <Card>
-          <ContainedButton color="primary" size="md">
+        <Card size="md">
+          <ContainedButton 
+            color="primary" 
+            size="md"
+            fullWidth
+          >
             Primary button
           </ContainedButton>
         </Card>
