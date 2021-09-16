@@ -10,9 +10,9 @@ const theme = {
     button: {
       fontSize: "14px",
       size: {
-        sm: "5px 10px",
-        md: "7px 12px",
-        lg: "9px 14px"
+        sm: "8px 12px",
+        md: "10px 14px",
+        lg: "12px 16px"
       }
     },
     card: {
