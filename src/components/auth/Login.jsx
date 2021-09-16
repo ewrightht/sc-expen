@@ -1,18 +1,19 @@
 import React from "react";
 import { ContainedButton } from "../../styled/Button";
+import { Card } from "../../styled/Card";
 import { Container, FlexContainer } from "../../styled/Container";
 
 export default function Login() {
 
   function renderUI() {
     return (
-      <Container>
-        <FlexContainer fullHeight center middle>
-          <ContainedButton color="primary">
+      <FlexContainer fullHeight center middle>
+        <Card>
+          <ContainedButton color="primary" size="md">
             Primary button
           </ContainedButton>
-        </FlexContainer>
-      </Container>
+        </Card>
+      </FlexContainer>
     );
   }
 

@@ -8,9 +8,12 @@ export const theme = {
   },
   components: {
     button: {
-      sm: "5px 10px",
-      md: "7px 12px",
-      lg: "9px 14px"
+      size: {
+        sm: "5px 10px",
+        md: "7px 12px",
+        lg: "9px 14px"
+      }
     }
-  }
+  },
+  borderRadius: "3px" 
 };
