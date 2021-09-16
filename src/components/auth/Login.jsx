@@ -2,6 +2,8 @@ import React from "react";
 import { ContainedButton } from "../../styled/Button";
 import { Card } from "../../styled/Card";
 import { Container, FlexContainer } from "../../styled/Container";
+import { Space } from "../../styled/Space";
+import { TextField } from "../../styled/TextField";
 
 export default function Login() {
 
@@ -9,12 +11,18 @@ export default function Login() {
     return (
       <FlexContainer fullHeight center middle>
         <Card size="md">
+          <TextField
+            type="email"
+            fullWidth
+            placeholder="Correo electrónico"
+          />
+          <Space mt="10" />
           <ContainedButton 
             color="primary" 
-            size="md"
+            size="lg"
             fullWidth
           >
-            Primary button
+            Iniciar sesión
           </ContainedButton>
         </Card>
       </FlexContainer>
