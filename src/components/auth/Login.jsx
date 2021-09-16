@@ -22,11 +22,24 @@ export default function Login() {
           <Typography centered size="1.5" weight="700">
             Monitorea tu dinero y ahorra
           </Typography>
-          <TextField type="email" fullWidth placeholder="Correo electrónico" />
-          <Space mt="10" />
-          <ContainedButton color="primary" size="lg" fullWidth disabled>
-            Iniciar sesión
-          </ContainedButton>
+          <form>
+            <TextField
+              type="email"
+              fullWidth
+              placeholder="Correo electrónico"
+              required
+            />
+            <Space mt="10" />
+            <ContainedButton
+              type="submit"
+              color="primary"
+              size="lg"
+              fullWidth
+              disabled
+            >
+              Iniciar sesión
+            </ContainedButton>
+          </form>
         </Card>
       </FlexContainer>
     );
