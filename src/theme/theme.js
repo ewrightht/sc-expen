@@ -5,5 +5,12 @@ export const theme = {
     danger: "#f53b57",
     warning: "#ffc048",
     light: "#f1f4f5"
+  },
+  components: {
+    button: {
+      sm: "5px 10px",
+      md: "7px 12px",
+      lg: "9px 14px"
+    }
   }
 };

@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import { darken } from "polished";
+import { darken, lighten } from "polished";
 
 export const Button = styled.button`
   border: 1px solid transparent;
-  padding: 5px 10px;
-  border-radius: 4px;
+  padding: ${props => 
+    props.size ?
+      props.theme.components.button[props.size] : 
+      props.theme.components.button["sm"]};
+  border-radius: 3px;
   font-weight: 500;
-  font-size: 15px;
   color: inherit;
   cursor: pointer;
 `;
@@ -24,5 +26,12 @@ export const ContainedButton = styled(Button)`
 export const OutlinedButton = styled(Button)`
   border-color: ${props => props.theme.palette[props.color]};
   background: transparent;
-  color: ${props => props.theme.palette[props.color]}
+  color: ${props => props.theme.palette[props.color]};
+
+  &:hover {
+    background: ${props => lighten(
+      0.6,
+      props.theme.palette[props.color]
+    )};
+  }
 `;
