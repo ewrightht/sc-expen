@@ -10,21 +10,39 @@ const theme = {
     button: {
       fontSize: "14px",
       size: {
-        sm: "8px 12px",
-        md: "10px 14px",
-        lg: "12px 16px"
+        sm: "6px 10px",
+        md: "8px 12px",
+        lg: "10px 14px"
       }
     },
     card: {
       size: {
-        sm: "300px",
+        sm: "400px",
         md: "500px",
-        lg: "700px"
+        lg: "600px"
+      }
+    },
+    container: {
+      justifyContent: {
+        center: "center",
+        evenly: "space-evenly",
+        around: "space-around",
+        between: "space-between",
+        start: "flex-start",
+        end: "flex-end"
+      },
+      alignItems: {
+        center: "center",
+        evenly: "space-evenly",
+        around: "space-around",
+        between: "space-between",
+        start: "flex-start",
+        end: "flex-end"
       }
     }
   },
-  borderRadius: "3px",
-  boxShadow: "0px 3px 5px #dcdcdc"
+  borderRadius: "4px",
+  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"
 };
 
 export default Object.freeze(theme);
