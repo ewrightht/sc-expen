@@ -42,7 +42,7 @@ const theme = {
     }
   },
   borderRadius: "4px",
-  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.5)"
+  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
 };
 
 export default Object.freeze(theme);

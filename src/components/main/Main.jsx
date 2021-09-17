@@ -13,7 +13,11 @@ export default function Main() {
           <Route exact path="/main">
             <Redirect to="/main/dashboard" />
           </Route>
-          <Route exact path="/main/dashboard" component={Dashboard} />
+          <Route 
+            exact 
+            path="/main/dashboard" 
+            component={Dashboard}
+          />
         </Switch>
       </Layout>
     );
