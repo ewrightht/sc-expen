@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
 import Login from "../components/auth/login/Login";
+import Main from "../components/main/Main";
 
 export default function Routes() {
 
@@ -8,8 +10,8 @@ export default function Routes() {
     return (
       <BrowserRouter basename="/app">
         <Switch>
-          <Route path="/login" component={Login} />
-          <Redirect to="/" />
+          <Route exact path="/login" component={Login} />
+          <Route path="/main" component={Main} />
         </Switch>
       </BrowserRouter>
     );
