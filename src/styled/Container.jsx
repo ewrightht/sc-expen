@@ -14,4 +14,5 @@ export const FlexContainer = styled(Container)`
   align-items: ${props =>
     props.theme.components.container.alignItems[props.alignItems]
   };
+  flex: ${props => props.flex && "1"};
 `;
