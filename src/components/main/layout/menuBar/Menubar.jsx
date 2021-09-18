@@ -19,14 +19,14 @@ export default function Menubar() {
       <MenubarContainer>
         <FlexContainer fluid flex>
           <MenubarItem>
-            <i className="fas fa-home fa-lg"></i>
+            <i className="fas fa-home"></i>
           </MenubarItem>
         </FlexContainer>
         <MenubarItem>
-          <i className="fas fa-cog fa-lg"></i>
+          <i className="fas fa-cog"></i>
         </MenubarItem>
         <MenubarItem>
-          <i className="fas fa-sign-out-alt fa-lg"></i>
+          <i className="fas fa-sign-out-alt"></i>
         </MenubarItem>
       </MenubarContainer>
     );

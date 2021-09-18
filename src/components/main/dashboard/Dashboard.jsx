@@ -1,9 +1,18 @@
 import React from "react";
+import { FlexContainer } from "../../../styled/Container";
+import SidePanel from "./sidePanel/SidePanel";
 
 export default function Dashboard() {
 
   function renderUI() {
-    return <h1>Hello Dashboard</h1>
+    return (
+      <>
+        <SidePanel />
+        <FlexContainer fluid flex>
+
+        </FlexContainer>
+      </>
+    );
   }
 
   return renderUI();

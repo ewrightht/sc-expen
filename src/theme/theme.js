@@ -4,7 +4,8 @@ const theme = {
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
-    light: "#f1f4f5"
+    light: "#f1f4f5",
+    white: "#ffffff"
   },
   components: {
     button: {

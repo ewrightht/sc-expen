@@ -26,8 +26,10 @@ export default function Login() {
     return (
       <FlexContainer
         fullHeight
+        fluid
         justifyContent="center"
         alignItems="center"
+        color="light"
       >
         <Card size="md">
           <FlexContainer justifyContent="center">

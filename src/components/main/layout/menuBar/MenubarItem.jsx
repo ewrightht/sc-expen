@@ -10,6 +10,7 @@ const Item = styled.div`
   height: 70px;
   cursor: pointer;
   color: white;
+  font-size: 18px;
   &:hover {
     background: ${props => darken(0.1, props.theme.palette.primary)};
   }
