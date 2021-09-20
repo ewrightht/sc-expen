@@ -14,6 +14,7 @@ export const ListItem = styled.div`
   border-radius: ${props => props.theme.borderRadius};
   background: ${props => props.active &&
     darken(0.04, props.theme.palette.light)};
+  cursor: pointer;
 
 >* {
   margin-right: 10px;
