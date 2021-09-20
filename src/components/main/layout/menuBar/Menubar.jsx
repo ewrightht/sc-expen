@@ -5,7 +5,7 @@ import { FlexContainer } from "../../../../styled/Container";
 import MenubarItem from "./MenubarItem";
 
 const MenubarContainer = styled.div`
-  width: 70px;
+  width: 65px;
   height: 100%;
   background: ${props => props.theme.palette.primary};
   display: flex;
@@ -17,7 +17,7 @@ export default function Menubar() {
   function renderUI() {
     return (
       <MenubarContainer>
-        <FlexContainer fluid flex>
+        <FlexContainer fluid flex color="primary">
           <MenubarItem>
             <i className="fas fa-home"></i>
           </MenubarItem>

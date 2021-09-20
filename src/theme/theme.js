@@ -5,6 +5,7 @@ const theme = {
     danger: "#f53b57",
     warning: "#ffc048",
     light: "#f1f4f5",
+    dark: "#172B4D",
     white: "#ffffff"
   },
   components: {

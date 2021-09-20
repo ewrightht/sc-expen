@@ -7,10 +7,10 @@ const Item = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70px;
+  height: 65px;
   cursor: pointer;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   &:hover {
     background: ${props => darken(0.1, props.theme.palette.primary)};
   }
