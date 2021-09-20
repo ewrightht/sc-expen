@@ -8,7 +8,7 @@ import { List, ListItem } from "../../../../styled/List";
 const SidePanelContainer = styled.div`
   width: 300px;
   height: 100vh;
-  padding: 20px;
+  padding: 20px 15px;
   background: ${props => props.theme.palette.light};
 `;
 
@@ -18,7 +18,7 @@ export default function SidePanel() {
     return (
       <List>
         <ListItem active>
-          <i className="fas fa-list-alt"></i>
+          <i className="far fa-list-alt"></i>
           <Typography>
             Resumen
           </Typography>

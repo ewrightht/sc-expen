@@ -4,7 +4,7 @@ const theme = {
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
-    light: "#f1f4f5",
+    light: "#F4F5F7",
     dark: "#172B4D",
     white: "#ffffff"
   },
