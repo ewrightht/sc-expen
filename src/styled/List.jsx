@@ -10,7 +10,7 @@ export const List = styled.div`
 export const ListItem = styled.div`
   width: 100%;
   padding: 15px;
-  font-weight: 500  ;
+  font-weight: 500;
   border-radius: ${props => props.theme.borderRadius};
   background: ${props => props.active &&
     darken(0.04, props.theme.palette.light)};
