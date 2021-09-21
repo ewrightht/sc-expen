@@ -10,12 +10,14 @@ export default function Main() {
     return (
       <Layout>
         <Switch>
-          <Route exact path="/main">
-            <Redirect to="/main/dashboard" />
-          </Route>
-          <Route 
-            exact 
-            path="/main/dashboard" 
+          <Redirect
+            exact
+            from="/main"
+            to="/main/dashboard"
+          />
+          <Route
+            exact
+            path="/main/dashboard"
             component={Dashboard}
           />
         </Switch>
