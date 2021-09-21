@@ -10,9 +10,11 @@ export default function Routes() {
     return (
       <BrowserRouter basename="/app">
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/login" />
-          </Route>
+          <Redirect
+            exact
+            from="/"
+            to="/login"
+          />
           <Route exact path="/login" component={Login} />
           <Route path="/main" component={Main} />
         </Switch>
