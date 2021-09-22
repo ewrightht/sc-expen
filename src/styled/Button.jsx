@@ -12,6 +12,14 @@ export const Button = styled.button`
   width: ${props => props.fullWidth && "100%"};
   color: inherit;
   font-size: ${props => props.theme.components.button.fontSize};
+  :disabled {
+    background: #ccc;
+    color: #666;
+    &:hover {
+      background: #ccc;
+      color: #666;
+    }
+  }
   cursor: pointer;
 `;
 export const ContainedButton = styled(Button)`
