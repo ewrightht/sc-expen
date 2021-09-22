@@ -15,6 +15,9 @@ export const Button = styled.button`
   :disabled {
     background: #ccc;
     color: #666;
+    border-color: transparent;
+    cursor: default;
+    
     &:hover {
       background: #ccc;
       color: #666;
