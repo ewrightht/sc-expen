@@ -18,17 +18,17 @@ export default function Menubar() {
     return (
       <MenubarContainer>
         <FlexContainer fluid flex color="primary">
-          <MenubarItem>
+          <MenubarItem to="/main/dashboard" activeClassName="active">
             <i className="fas fa-home"></i>
           </MenubarItem>
         </FlexContainer>
-        <MenubarItem>
+        <MenubarItem to="/main/settings" activeClassName="active">
           <i className="fas fa-cog"></i>
         </MenubarItem>
-        <MenubarItem>
+        <MenubarItem to="/main/sign-out" activeClassName="active">
           <i className="fas fa-sign-out-alt"></i>
         </MenubarItem>
-      </MenubarContainer>
+      </MenubarContainer >
     );
   }
 

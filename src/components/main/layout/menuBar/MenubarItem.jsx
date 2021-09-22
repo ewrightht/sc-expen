@@ -1,8 +1,8 @@
-import React from "react";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 import { darken } from "polished";
 
-const Item = styled.div`
+const Item = styled(NavLink)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,21 +11,13 @@ const Item = styled.div`
   cursor: pointer;
   color: white;
   font-size: 16px;
+  text-decoration: none;
+  &.${props => props.activeClassName} {
+    background: ${props => darken(0.1, props.theme.palette.primary)};
+  }
   &:hover {
     background: ${props => darken(0.1, props.theme.palette.primary)};
   }
 `;
 
-export default function MenubarItem(props) {
-  const { children } = props;
-
-  function renderUI() {
-    return (
-      <Item>
-        {children}
-      </Item>
-    );
-  }
-
-  return renderUI();
-}
+export default Item;
