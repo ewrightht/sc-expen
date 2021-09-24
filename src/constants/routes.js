@@ -10,7 +10,7 @@ const routes = {
     return `${this.main}/dashboard`;
   },
   get dashboardSummary() {
-    return `${this.dashboard}/summary`
+    return `${this.dashboard}/summary`;
   },
   get dashboardExpends() {
     return `${this.dashboard}/expends`;

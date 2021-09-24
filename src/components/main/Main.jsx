@@ -18,7 +18,6 @@ export default function Main() {
             to={routes.dashboard}
           /> 
           <Route
-            exact
             path={routes.dashboard}
             component={Dashboard}
           />
