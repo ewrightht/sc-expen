@@ -3,6 +3,7 @@ import { darken, lighten } from "polished";
 
 export const Button = styled.button`
   border: 1px solid transparent;
+  line-height: 30px;
   padding: ${props =>
     props.size ?
       props.theme.components.button.size[props.size] :
@@ -17,7 +18,7 @@ export const Button = styled.button`
     color: #666;
     border-color: transparent;
     cursor: default;
-    
+
     &:hover {
       background: #ccc;
       color: #666;
@@ -42,7 +43,7 @@ export const OutlinedButton = styled(Button)`
 
   &:hover {
     background: ${props => 
-      lighten(0.5, props.theme.palette[props.color])
+      lighten(0.6, props.theme.palette[props.color])
     };
   }
 `;
