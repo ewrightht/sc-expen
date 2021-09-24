@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
+import routes from "../constants/routes";
+
 import Login from "../components/auth/login/Login";
 import Main from "../components/main/Main";
 
@@ -12,11 +14,11 @@ export default function Routes() {
         <Switch>
           <Redirect
             exact
-            from="/"
-            to="/login"
+            from={routes.root}
+            to={routes.login}
           />
-          <Route exact path="/login" component={Login} />
-          <Route path="/main" component={Main} />
+          <Route exact path={routes.login} component={Login} />
+          <Route path={routes.main} component={Main} />
         </Switch>
       </BrowserRouter>
     );

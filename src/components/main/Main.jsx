@@ -1,6 +1,8 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
+import routes from "../../constants/routes";
+
 import Layout from "./layout/Layout";
 import Dashboard from "./dashboard/Dashboard";
 
@@ -12,12 +14,12 @@ export default function Main() {
         <Switch>
           <Redirect
             exact
-            from="/main"
-            to="/main/dashboard"
-          />
+            from={routes.main}
+            to={routes.dashboard}
+          /> 
           <Route
             exact
-            path="/main/dashboard"
+            path={routes.dashboard}
             component={Dashboard}
           />
         </Switch>
