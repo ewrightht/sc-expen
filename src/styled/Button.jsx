@@ -4,6 +4,7 @@ import { darken, lighten } from "polished";
 export const Button = styled.button`
   border: 1px solid transparent;
   line-height: 30px;
+  outline: none;
   padding: ${props =>
     props.size ?
       props.theme.components.button.size[props.size] :

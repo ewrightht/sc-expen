@@ -16,7 +16,7 @@ const ModalWrapper = styled.div`
 `;
 
 export default function Modal(props) {
-  const { children, showModal, setShowModal } = props;
+  const { children, showModal, setShowModal, size } = props;
   const modalRef = useRef();
 
   function handleCloseModal(event) {
@@ -30,7 +30,7 @@ export default function Modal(props) {
       <>
         {showModal ? (
           <ModalWrapper ref={modalRef} onClick={handleCloseModal}>
-            <Card>{children}</Card>
+            <Card size={size}>{children}</Card>
           </ModalWrapper>
         ) : (
           null

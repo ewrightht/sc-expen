@@ -12,12 +12,16 @@ export default function LoginModal(props) {
 
   function renderUI() {
     return (
-      <Modal {...props}>
+      <Modal {...props} size="md">
         <Typography size="1.5" weight="700">
-          Lorem ipsum dolor sit amet.
+          Ya eres parte de nosotros, ingrese su contraseña para continuar.
         </Typography>
         <Space mt="10" />
-        <TextField fullWidth placeholder="Lorem Ipsum dolor" />
+        <TextField
+          type="password"
+          fullWidth 
+          placeholder="Contraseña" 
+        />
         <Space mt="15" />
         <FlexContainer fluid justifyContent="start">
           <OutlinedButton
