@@ -1,5 +1,6 @@
-import { darken } from "polished";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+import { darken } from "polished";
 
 export const List = styled.div`
   flex: 1;
@@ -7,7 +8,7 @@ export const List = styled.div`
   flex-direction: column;
 `;
 
-export const ListItem = styled.div`
+export const ListItem = styled(NavLink)`
   width: 100%;
   padding: 15px;
   font-weight: 500;
@@ -15,10 +16,17 @@ export const ListItem = styled.div`
   background: ${props => props.active &&
     darken(0.04, props.theme.palette.light)};
   cursor: pointer;
+  color: ${props => props.theme.palette.dark};
 
->* {
-  margin-right: 10px;
-  color: ${props => props.active && props.theme.palette.primary};
+  > * {
+    margin-right: 10px;
+  }
+
+  &.${props => props.activeClassName} {
+    > * {
+      color: ${props => props.theme.palette.primary};
+    }
+    background: ${(props) => darken(0.04, props.theme.palette.light)};
   }
 
   &:hover {

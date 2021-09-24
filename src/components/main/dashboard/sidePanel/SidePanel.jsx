@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Typography } from "../../../../styled/Typography";
 import { Space } from "../../../../styled/Space";
 import { List, ListItem } from "../../../../styled/List";
+import routes from "../../../../constants/routes";
 
 const SidePanelContainer = styled.div`
   width: 300px;
@@ -17,22 +18,16 @@ export default function SidePanel() {
   function renderList() {
     return (
       <List>
-        <ListItem active>
+        <ListItem to={routes.dashboardSummary} activeClassName="active">
           <i className="far fa-list-alt"></i>
           <Typography>
             Resumen
           </Typography>
         </ListItem>
-        <ListItem>
+        <ListItem to={routes.dashboardExpends} activeClassName="active">
           <i className="fas fa-list"></i>
           <Typography>
             Gastos
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <i className="fas fa-history"></i>
-          <Typography>
-            Historial
           </Typography>
         </ListItem>
       </List>
