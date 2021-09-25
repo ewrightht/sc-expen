@@ -25,8 +25,8 @@ export default function Login() {
   function renderUI() {
     return (
       <FlexContainer
+        flex
         fullHeight
-        fluid
         justifyContent="center"
         alignItems="center"
         color="light"

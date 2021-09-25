@@ -4,9 +4,10 @@ const theme = {
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
-    light: "#F1F4F5",
+    light: "#F2F3F5",
     dark: "#172B4D",
-    white: "#ffffff"
+    white: "#ffffff",
+    black: "#000000"
   },
   components: {
     button: {
@@ -40,6 +41,10 @@ const theme = {
         between: "space-between",
         start: "flex-start",
         end: "flex-end"
+      },
+      flexDirection: {
+        row: "row",
+        column: "column"
       }
     }
   },

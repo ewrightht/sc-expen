@@ -5,7 +5,7 @@ export const Typography = styled.p`
   text-align: ${props => props.centered && 'center'};
   font-weight: ${props => props.weight};
   color: ${props => props.theme.palette[props.color] ||
-    props.theme.palette.dark};
+    props.theme.palette.black};
   margin: 0;
   display: inline-block;
 `;
