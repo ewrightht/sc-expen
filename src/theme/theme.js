@@ -48,7 +48,7 @@ const theme = {
       }
     }
   },
-  borderRadius: "3px",
+  borderRadius: "5px",
   boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
 };
 
