@@ -1,7 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+
 import { Container, FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
 import { Typography } from "../../../../styled/Typography";
+
+const SummaryItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: ${props => props.theme.borderRadius};
+`;
 
 export default function Summary() {
 
@@ -13,42 +24,31 @@ export default function Summary() {
         <Space mt="40" />
         <FlexContainer
           flex
-          justifyContent="between"
+          justifyContent="start"
           alignItems="center"
+          color="light"
         >
 
-          <FlexContainer
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-          >
+          <SummaryItem>
             <Typography size="2.5">
               $370000
             </Typography>
             <Typography weight="700">Balance actual</Typography>
-          </FlexContainer>
+          </SummaryItem>
 
-          <FlexContainer
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-          >
+          <SummaryItem>
             <Typography size="2.5">
               62
             </Typography>
             <Typography weight="700">Total de gastos</Typography>
-          </FlexContainer>
+          </SummaryItem>
 
-          <FlexContainer
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-          >
+          <SummaryItem>
             <Typography size="2.5">
               $865700
             </Typography>
             <Typography weight="700">Cantidad de gastos</Typography>
-          </FlexContainer>
+          </SummaryItem>
         </FlexContainer >
       </Container>
     );
