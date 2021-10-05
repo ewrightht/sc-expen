@@ -13,9 +13,9 @@ const theme = {
     button: {
       fontSize: "14px",
       size: {
-        sm: "0px 16px",
-        md: "4px 16px",
-        lg: "8px 16px"
+        sm: "0px 10px",
+        md: "4px 12px",
+        lg: "8px 14px"
       }
     },
     card: {
@@ -48,7 +48,7 @@ const theme = {
       }
     }
   },
-  borderRadius: "5px",
+  borderRadius: "4px",
   boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
 };
 

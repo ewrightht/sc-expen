@@ -32,7 +32,7 @@ export default function LoginModal(props) {
           </OutlinedButton>
           <Space ml="5" />
           <ContainedButton color="primary">
-            Confirmar
+            Primary button
           </ContainedButton>
         </FlexContainer>
       </Modal>
