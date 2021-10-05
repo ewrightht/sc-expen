@@ -20,7 +20,7 @@ export default function LoginModal(props) {
         <TextField
           type="password"
           fullWidth 
-          placeholder="Contraseña" 
+          placeholder="Contraseña"
         />
         <Space mt="15" />
         <FlexContainer fluid justifyContent="start">
@@ -32,7 +32,7 @@ export default function LoginModal(props) {
           </OutlinedButton>
           <Space ml="5" />
           <ContainedButton color="primary">
-            Primary button
+            Confirmar
           </ContainedButton>
         </FlexContainer>
       </Modal>
