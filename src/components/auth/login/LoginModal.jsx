@@ -18,7 +18,7 @@ export default function LoginModal(props) {
         </Typography>
         <Space mt="10" />
         <Typography color="gray">
-          Este correo se ha registrado anteriormente, si este correo le pertenece, digite su contraseña para continuar.
+          Este correo se ha registrado anteriormente, digite su contraseña para continuar.
         </Typography>
         <Space mt="20" />
         <TextField
@@ -28,16 +28,16 @@ export default function LoginModal(props) {
         />
         <Space mt="20" />
         <FlexContainer fluid justifyContent="end">
-          <ContainedButton color="primary">
-            Confirmar
-          </ContainedButton>
-          <Space ml="5" />
           <OutlinedButton
             color="primary"
             onClick={() => setShowModal(false)}
           >
             Cancelar
           </OutlinedButton>
+          <Space ml="5" />
+          <ContainedButton color="primary">
+            Confirmar
+          </ContainedButton>
         </FlexContainer>
       </Modal>
     );
