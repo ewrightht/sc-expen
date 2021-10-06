@@ -13,27 +13,31 @@ export default function LoginModal(props) {
   function renderUI() {
     return (
       <Modal {...props} size="md">
-        <Typography size="1.5" weight="700">
-          Ya eres parte de nosotros, ingrese su contraseña para continuar.
+        <Typography size="1.3" weight="600">
+          Ya estás registado
         </Typography>
         <Space mt="10" />
+        <Typography color="gray">
+          Este correo se ha registrado anteriormente, si este correo le pertenece, digite su contraseña para continuar.
+        </Typography>
+        <Space mt="20" />
         <TextField
           type="password"
-          fullWidth 
+          fullWidth
           placeholder="Contraseña"
         />
-        <Space mt="15" />
-        <FlexContainer fluid justifyContent="start">
+        <Space mt="20" />
+        <FlexContainer fluid justifyContent="end">
+          <ContainedButton color="primary">
+            Confirmar
+          </ContainedButton>
+          <Space ml="5" />
           <OutlinedButton
             color="primary"
             onClick={() => setShowModal(false)}
           >
             Cancelar
           </OutlinedButton>
-          <Space ml="5" />
-          <ContainedButton color="primary">
-            Confirmar
-          </ContainedButton>
         </FlexContainer>
       </Modal>
     );
