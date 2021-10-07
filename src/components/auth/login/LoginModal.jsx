@@ -26,7 +26,7 @@ export default function LoginModal(props) {
           fullWidth
           placeholder="Contraseña"
         />
-        <Space mt="20" />
+        <Space mt="15" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
             color="primary"

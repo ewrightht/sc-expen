@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import { FlexContainer } from "../../../../styled/Container";
@@ -25,7 +26,7 @@ export default function Menubar() {
         <MenubarItem to="/main/settings" activeClassName="active">
           <i className="fas fa-cog"></i>
         </MenubarItem>
-        <MenubarItem to="/main/sign-out" activeClassName="active">
+        <MenubarItem to="/" activeClassName="active">
           <i className="fas fa-sign-out-alt"></i>
         </MenubarItem>
       </MenubarContainer >
