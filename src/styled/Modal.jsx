@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -39,7 +40,7 @@ export default function Modal(props) {
     );
   }
 
-  return renderUI();
+  return ReactDOM.createPortal(renderUI(), document.querySelector("#modal"));
 }
 
 Modal.propTypes = {
