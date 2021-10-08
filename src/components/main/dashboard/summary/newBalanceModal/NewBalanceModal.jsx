@@ -25,7 +25,7 @@ export default function NewBalanceModal(props) {
           placeholder="Nuevo balance"
           fullWidth
         />
-        <Space mt="15" />
+        <Space mt="20" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
             color="primary"
