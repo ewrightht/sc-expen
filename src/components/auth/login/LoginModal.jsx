@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "../../../styled/Modal";
-
 import { FlexContainer } from "../../../styled/Container";
 import { TextField } from "../../../styled/TextField";
 import { Typography } from "../../../styled/Typography";
