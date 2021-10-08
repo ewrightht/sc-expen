@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: ${props => props.fluid ? "100%" : "80%"};
+  width: ${props => props.fluid ? "100%" : "90%"};
   height: ${props => props.fullHeight && "100vh"};
   margin: 0 auto;
   background: ${props => props.theme.palette[props.color] || "white"};

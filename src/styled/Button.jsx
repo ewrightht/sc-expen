@@ -12,7 +12,7 @@ export const Button = styled.button`
   border-radius: ${props => props.theme.borderRadius};
   font-weight: 500;
   width: ${props => props.fullWidth && "100%"};
-  color: inherit;
+  color: ${props => props.theme.palette.dark};
   font-size: ${props => props.theme.components.button.fontSize};
   :disabled {
     background: #ccc;
