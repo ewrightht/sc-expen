@@ -7,7 +7,7 @@ import { List, ListItem } from "../../../../styled/List";
 import routes from "../../../../constants/routes";
 
 const SidePanelContainer = styled.div`
-  width: 300px;
+  width: 280px;
   height: 100vh;
   padding: 20px 15px;
   background: ${props => props.theme.palette.light};
