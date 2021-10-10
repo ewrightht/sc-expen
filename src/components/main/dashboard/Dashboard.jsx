@@ -13,7 +13,7 @@ export default function Dashboard() {
     return (
       <>
         <SidePanel />
-        <FlexContainer fluid flex>
+        <FlexContainer fluid flex style={{ overflowY: "auto" }}>
           <Switch>
             <Redirect
               exact
