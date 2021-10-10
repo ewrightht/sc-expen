@@ -27,7 +27,7 @@ export default function Summary() {
               Resumen
             </Typography>
             <ContainedButton color="primary" onClick={handleOpenNewBalanceModal}>
-              Agregar nuevo balance
+              Sumar nuevo balance
             </ContainedButton>
           </FlexContainer>
 
@@ -36,7 +36,7 @@ export default function Summary() {
 
           <Space mt="40" />
           <Typography size="1.5" weight="700">
-            Gastos recientes
+            Actividad reciente
           </Typography>
           <Space mt="20" />
           <FlexContainer justifyContent="start" alignItems="center" >

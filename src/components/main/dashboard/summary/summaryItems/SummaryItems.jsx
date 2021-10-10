@@ -36,7 +36,7 @@ export default function SummaryItems() {
           </Typography>
           <Space mt="2" />
           <Typography weight="400">
-            Total de gastos
+            Cantidad de gastos
           </Typography>
         </SummaryItem>
         <Space ml="15" />
@@ -46,7 +46,7 @@ export default function SummaryItems() {
           </Typography>
           <Space mt="2" />
           <Typography weight="400">
-            Cantidad de gastos
+            Total de gastos
           </Typography>
         </SummaryItem>
       </FlexContainer>

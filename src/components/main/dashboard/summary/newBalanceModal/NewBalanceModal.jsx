@@ -17,7 +17,7 @@ export default function NewBalanceModal(props) {
         </Typography>
         <Space mt="10" />
         <Typography color="gray">
-          Agrega un nuevo balance a tu cuenta.
+          Agrega un nuevo balance a tu cuenta, este se sumará a tu balance actual.
         </Typography>
         <Space mt="10" />
         <TextField

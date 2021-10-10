@@ -27,7 +27,7 @@ export default function ExpendTable() {
         <thead>
           <tr>
             <th colSpan="2">Descripción</th>
-            <th>Gasto</th>
+            <th>Monto</th>
             <th>Fecha</th>
           </tr>
         </thead>
