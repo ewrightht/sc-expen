@@ -1,0 +1,42 @@
+import React from "react";
+import { Table } from "../../../../../styled/Table";
+import { Space } from "../../../../../styled/Space";
+
+export default function ExpendTable() {
+
+  function renderTableRow(desc, value, date) {
+    return (
+      <tr>
+        <td>
+          <span>
+            <i className="far fa-file-alt fa-lg"></i>
+            <Space ml="20" />
+            <span>{desc}</span>
+          </span>
+        </td>
+        <td></td>
+        <td>{value}</td>
+        <td>{date}</td>
+      </tr>
+    );
+  }
+
+  function renderUI() {
+    return (
+      <Table>
+        <thead>
+          <tr>
+            <th colSpan="2">Descripción</th>
+            <th>Gasto</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          {renderTableRow("Hamburguesa", "12000", "10/12/2021")}
+        </tbody>
+      </Table>
+    );
+  }
+
+  return renderUI();
+}
