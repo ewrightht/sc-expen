@@ -15,7 +15,7 @@ export default function ExpendTable() {
           </span>
         </td>
         <td></td>
-        <td>{value}</td>
+        <td>${value}</td>
         <td>{date}</td>
       </tr>
     );
@@ -33,6 +33,8 @@ export default function ExpendTable() {
         </thead>
         <tbody>
           {renderTableRow("Hamburguesa", "12000", "10/12/2021")}
+          {renderTableRow("Ropa", "10000", "10/12/2021")}
+          {renderTableRow("Mantenimiento", "200000", "10/12/2021")}
         </tbody>
       </Table>
     );
