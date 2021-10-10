@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import SummaryItems from "./summaryItems/SummaryItems";
 import ExpendTable from "./expendTable/ExpendTable";
@@ -8,6 +9,8 @@ import { ContainedButton, Button } from "../../../../styled/Button";
 import { Container, FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
 import { Typography } from "../../../../styled/Typography";
+
+import routes from "../../../../constants/routes";
 
 export default function Summary() {
   const [openNewBalanceModal, setOpenNewBalanceModal] = useState(false);
@@ -20,16 +23,11 @@ export default function Summary() {
     return (
       <>
         <Container>
-          <Space mt="40" />
 
-          <FlexContainer flex justifyContent="between" alignItems="center" >
-            <Typography size="1.5" weight="700">
-              Resumen
-            </Typography>
-            <ContainedButton color="primary" onClick={handleOpenNewBalanceModal}>
-              Sumar nuevo balance
-            </ContainedButton>
-          </FlexContainer>
+          <Space mt="20" />
+          <Typography size="1.5" weight="700">
+            Resumen
+          </Typography>
 
           <Space mt="20" />
           <SummaryItems />
@@ -38,11 +36,20 @@ export default function Summary() {
           <Typography size="1.5" weight="700">
             Actividad reciente
           </Typography>
+
           <Space mt="20" />
           <FlexContainer justifyContent="start" alignItems="center" >
             <ContainedButton color="primary">Agregar nuevo gasto</ContainedButton>
             <Space ml="10" />
-            <Button>Ver todos los gastos</Button>
+            <ContainedButton color="primary" onClick={handleOpenNewBalanceModal}>
+              Sumar nuevo balance
+            </ContainedButton>
+            <Space ml="10" />
+            <Link to={routes.dashboardExpends}>
+              <Button>Ver todos los gastos</Button>
+            </Link>
+            <Space ml="10" />
+            <Button>Ver todas las adiciones</Button>
           </FlexContainer>
 
           <Space mt="20" />
