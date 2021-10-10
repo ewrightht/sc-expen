@@ -15,6 +15,9 @@ const routes = {
   get dashboardExpends() {
     return `${this.dashboard}/expends`;
   },
+  get dashboardAdditions() {
+    return `${this.dashboard}/additions`;
+  },
   //
   get settings() {
     return `${this.main}/settings`;

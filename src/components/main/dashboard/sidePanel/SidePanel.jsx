@@ -30,6 +30,12 @@ export default function SidePanel() {
             Gastos
           </Typography>
         </ListItem>
+        <ListItem to={routes.dashboardAdditions} activeClassName="active">
+          <i class="fas fa-search-dollar"></i>
+          <Typography>
+            Adiciones
+          </Typography>
+        </ListItem>
       </List>
     );
   }
