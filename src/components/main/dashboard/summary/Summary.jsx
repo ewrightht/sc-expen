@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { ContainedButton } from "../../../../styled/Button";
+import { ContainedButton, Button, OutlinedButton } from "../../../../styled/Button";
 import { Container, FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
+import { Table } from "../../../../styled/Table";
 import { Typography } from "../../../../styled/Typography";
 import NewBalanceModal from "./newBalanceModal/NewBalanceModal";
 
@@ -29,22 +30,18 @@ export default function Summary() {
       <>
         <Container>
           <Space mt="40" />
-          <FlexContainer
-            flex
-            justifyContent="between"
-            alignItems="center"
-          >
-            <Typography size="1.5" weight="700">Resumen</Typography>
+
+          <FlexContainer flex justifyContent="between" alignItems="center" >
+            <Typography size="1.5" weight="700">
+              Resumen
+            </Typography>
             <ContainedButton color="primary" onClick={handleOpenNewBalanceModal}>
               Agregar nuevo balance
             </ContainedButton>
           </FlexContainer>
-          <Space mt="40" />
-          <FlexContainer
-            flex
-            justifyContent="evenly"
-            alignItems="center"
-          >
+
+          <Space mt="20" />
+          <FlexContainer flex alignItems="center" >
             <SummaryItem>
               <Typography size="1.5" weight="600">
                 $370000
@@ -54,7 +51,7 @@ export default function Summary() {
                 Balance actual
               </Typography>
             </SummaryItem>
-
+            <Space ml="15" />
             <SummaryItem>
               <Typography size="1.5" weight="600">
                 62
@@ -64,7 +61,7 @@ export default function Summary() {
                 Total de gastos
               </Typography>
             </SummaryItem>
-
+            <Space ml="15" />
             <SummaryItem>
               <Typography size="1.5" weight="600">
                 $865700
@@ -75,7 +72,69 @@ export default function Summary() {
               </Typography>
             </SummaryItem>
           </FlexContainer >
+
+          <Space mt="40" />
+          <Typography size="1.5" weight="700">
+            Gastos recientes
+          </Typography>
+          <Space mt="20" />
+          <FlexContainer justifyContent="start" alignItems="center" >
+            <ContainedButton color="primary">Agregar un nuevo gasto</ContainedButton>
+            <Space ml="10" />
+            <Button>Ver todos los gastos</Button>
+          </FlexContainer>
+
+          <Space mt="20" />
+          <Table>
+            <thead>
+              <tr>
+                <th colSpan="2">Descripción</th>
+                <th>Gasto</th>
+                <th>Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span>
+                    <i className="far fa-file-alt fa-lg"></i>
+                    <Space ml="20" />
+                    <span>Hamburguesa</span>
+                  </span>
+                </td>
+                <td></td>
+                <td>$12000</td>
+                <td>10/10/21</td>
+              </tr>
+              <tr>
+                <td>
+                  <span>
+                    <i className="far fa-file-alt fa-lg"></i>
+                    <Space ml="20" />
+                    <span>Ropa gucci</span>
+                  </span>
+                </td>
+                <td></td>
+                <td>$140000</td>
+                <td>10/10/21</td>
+              </tr>
+              <tr>
+                <td>
+                  <span>
+                    <i className="far fa-file-alt fa-lg"></i>
+                    <Space ml="20" />
+                    <span>Mantenimiento del carro</span>
+                  </span>
+                </td>
+                <td></td>
+                <td>$420000</td>
+                <td>10/10/21</td>
+              </tr>
+            </tbody>
+          </Table>
+
         </Container>
+
         <NewBalanceModal
           showModal={openNewBalanceModal}
           setShowModal={setOpenNewBalanceModal}

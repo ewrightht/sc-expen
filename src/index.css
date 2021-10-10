@@ -12,3 +12,9 @@ body {
   background: white;
   overflow: hidden;
 }
+
+tbody, td, tfoot, th, thead, tr {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
+}
