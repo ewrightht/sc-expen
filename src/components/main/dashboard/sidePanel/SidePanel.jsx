@@ -31,7 +31,7 @@ export default function SidePanel() {
           </Typography>
         </ListItem>
         <ListItem to={routes.dashboardAdditions} activeClassName="active">
-          <i class="fas fa-search-dollar"></i>
+          <i className="fas fa-search-dollar"></i>
           <Typography>
             Adiciones
           </Typography>
