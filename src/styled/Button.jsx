@@ -29,12 +29,12 @@ export const Button = styled.button`
 `;
 export const ContainedButton = styled(Button)`
   background: ${props => props.theme.palette[props.color]};
-  color: white;
-
+  color: ${props => props.theme.palette.white};
   &:hover {
     background: ${props =>
       darken(0.1, props.theme.palette[props.color])
     };
+    color: ${props => props.theme.palette.white};
   }
 `;
 export const OutlinedButton = styled(Button)`
