@@ -7,12 +7,18 @@ import SidePanel from "./sidePanel/SidePanel";
 import Expends from "./expends/Expends";
 import Summary from "./summary/Summary";
 import AddBalanceModal from "./addBalanceModal/AddBalanceModal";
+import AddExpenseModal from "./addExpenseModal/AddExpenseModal";
 
 export default function Dashboard() {
-  const [openNewBalanceModal, setOpenNewBalanceModal] = useState(false);
+  const [openAddBalanceModal, setOpenAddBalanceModal] = useState(false);
+  const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
 
   function handleOpenAddBalanceModal() {
-    setOpenNewBalanceModal(true);
+    setOpenAddBalanceModal(true);
+  }
+
+  function handleOpenAddExpenseModal() {
+    setOpenAddExpenseModal(true);
   }
 
   function renderUI() {
@@ -27,7 +33,10 @@ export default function Dashboard() {
               to={routes.dashboardSummary}
             />
             <Route exact path={routes.dashboardSummary} >
-              <Summary handleOpenAddBalanceModal={handleOpenAddBalanceModal} />
+              <Summary
+                handleOpenAddBalanceModal={handleOpenAddBalanceModal}
+                handleOpenAddExpenseModal={handleOpenAddExpenseModal}
+              />
             </Route>
             <Route exact path={routes.dashboardExpends} >
               <Expends handleOpenAddBalanceModal={handleOpenAddBalanceModal} />
@@ -36,8 +45,12 @@ export default function Dashboard() {
         </FlexContainer>
 
         <AddBalanceModal
-          showModal={openNewBalanceModal}
-          setShowModal={setOpenNewBalanceModal}
+          showModal={openAddBalanceModal}
+          setShowModal={setOpenAddBalanceModal}
+        />
+        <AddExpenseModal
+          showModal={openAddExpenseModal}
+          setShowModal={setOpenAddExpenseModal}
         />
       </>
     );

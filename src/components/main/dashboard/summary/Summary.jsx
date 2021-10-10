@@ -12,7 +12,10 @@ import { Typography } from "../../../../styled/Typography";
 import routes from "../../../../constants/routes";
 
 export default function Summary(props) {
-  const { handleOpenAddBalanceModal = function () { } } = props;
+  const {
+    handleOpenAddBalanceModal = function () { },
+    handleOpenAddExpenseModal = function () { }
+  } = props;
 
   function renderUI() {
     return (
@@ -33,10 +36,12 @@ export default function Summary(props) {
 
         <Space mt="20" />
         <FlexContainer justifyContent="start" alignItems="center" >
-          <ContainedButton color="primary">Agregar nuevo gasto</ContainedButton>
+          <ContainedButton color="primary" onClick={handleOpenAddExpenseModal}>
+            Agregar nuevo gasto
+          </ContainedButton>
           <Space ml="10" />
           <ContainedButton color="primary" onClick={handleOpenAddBalanceModal}>
-            Sumar nuevo balance
+            Agregar nuevo balance
           </ContainedButton>
           <Space ml="10" />
           <Link to={routes.dashboardExpends}>
