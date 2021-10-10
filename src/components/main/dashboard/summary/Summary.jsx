@@ -40,7 +40,7 @@ export default function Summary() {
           </Typography>
           <Space mt="20" />
           <FlexContainer justifyContent="start" alignItems="center" >
-            <ContainedButton color="primary">Agregar un nuevo gasto</ContainedButton>
+            <ContainedButton color="primary">Agregar nuevo gasto</ContainedButton>
             <Space ml="10" />
             <Button>Ver todos los gastos</Button>
           </FlexContainer>
