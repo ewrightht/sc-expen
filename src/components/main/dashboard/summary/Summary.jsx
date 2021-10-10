@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import SummaryItems from "./summaryItems/SummaryItems";
-import ExpendTable from "./expendTable/ExpendTable";
+import SummaryTable from "./expendTable/SummaryTable";
 import NewBalanceModal from "./newBalanceModal/NewBalanceModal";
 
 import { ContainedButton, Button } from "../../../../styled/Button";
@@ -53,7 +53,7 @@ export default function Summary() {
           </FlexContainer>
 
           <Space mt="20" />
-          <ExpendTable />
+          <SummaryTable />
         </Container>
 
         <NewBalanceModal

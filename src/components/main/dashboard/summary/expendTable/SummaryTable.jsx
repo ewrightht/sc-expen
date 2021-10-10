@@ -2,7 +2,7 @@ import React from "react";
 import { Table } from "../../../../../styled/Table";
 import { Space } from "../../../../../styled/Space";
 
-export default function ExpendTable() {
+export default function SummaryTable() {
 
   function renderTableRow(desc, value, date) {
     return (
