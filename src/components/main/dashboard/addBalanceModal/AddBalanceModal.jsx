@@ -1,12 +1,12 @@
 import React from "react";
-import Modal from "../../../../../styled/Modal";
-import { ContainedButton, OutlinedButton } from "../../../../../styled/Button";
-import { FlexContainer } from "../../../../../styled/Container";
-import { Space } from "../../../../../styled/Space";
-import { TextField } from "../../../../../styled/TextField";
-import { Typography } from "../../../../../styled/Typography";
+import Modal from "../../../../styled/Modal";
+import { ContainedButton, OutlinedButton } from "../../../../styled/Button";
+import { FlexContainer } from "../../../../styled/Container";
+import { Space } from "../../../../styled/Space";
+import { TextField } from "../../../../styled/TextField";
+import { Typography } from "../../../../styled/Typography";
 
-export default function NewBalanceModal(props) {
+export default function AddBalanceModal(props) {
   const { setShowModal } = props;
 
   function renderUI() {

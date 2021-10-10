@@ -8,7 +8,8 @@ import { Typography } from "../../../../styled/Typography";
 import { TextField } from "../../../../styled/TextField";
 import { ContainedButton } from "../../../../styled/Button";
 
-export default function Expends() {
+export default function Expends(props) {
+  const { handleOpenAddBalanceModal = function () { } } = props;
 
   function renderUI() {
     return (
@@ -24,7 +25,11 @@ export default function Expends() {
             type="text"
             placeholder="Buscar gasto"
           />
-          <ContainedButton color="primary" size="md">
+          <ContainedButton
+            color="primary"
+            size="md"
+            onClick={handleOpenAddBalanceModal}
+          >
             Agregar nuevo gasto
           </ContainedButton>
         </FlexContainer>
