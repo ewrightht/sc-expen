@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import SummaryItems from "./summaryItems/SummaryItems";
-import SummaryTable from "./expendTable/SummaryTable";
+import SummaryTable from "./summaryTable/SummaryTable";
 import NewBalanceModal from "./newBalanceModal/NewBalanceModal";
 
 import { ContainedButton, Button } from "../../../../styled/Button";
@@ -49,7 +49,9 @@ export default function Summary() {
               <Button>Ver todos los gastos</Button>
             </Link>
             <Space ml="10" />
-            <Button>Ver todas las adiciones</Button>
+            <Link to={routes.dashboardAdditions}>
+              <Button>Ver todas las adiciones</Button>
+            </Link>
           </FlexContainer>
 
           <Space mt="20" />
