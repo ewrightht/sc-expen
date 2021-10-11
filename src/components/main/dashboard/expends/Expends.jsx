@@ -14,12 +14,11 @@ export default function Expends(props) {
   function renderUI() {
     return (
       <Container>
-        <Space mt="20" />
         <Typography size="1.5" weight="700">
           Gastos
         </Typography>
 
-        <Space mt="20" />
+        <Space mt="10" />
         <FlexContainer justifyContent="between">
           <TextField
             type="text"

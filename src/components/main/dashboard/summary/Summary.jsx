@@ -20,21 +20,19 @@ export default function Summary(props) {
   function renderUI() {
     return (
       <Container>
-
-        <Space mt="20" />
         <Typography size="1.5" weight="700">
           Resumen
         </Typography>
 
-        <Space mt="20" />
+        <Space mt="10" />
         <SummaryItems />
 
-        <Space mt="40" />
+        <Space mt="30" />
         <Typography size="1.5" weight="700">
           Actividad reciente
         </Typography>
 
-        <Space mt="20" />
+        <Space mt="10" />
         <FlexContainer justifyContent="start" alignItems="center" >
           <ContainedButton color="primary" onClick={handleOpenAddExpenseModal}>
             Agregar nuevo gasto
