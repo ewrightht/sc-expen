@@ -16,7 +16,7 @@ const SidePanelContainer = styled.div`
 export default function SidePanel() {
 
   const listItems = [
-    { title: "Resumen", route: routes.dashboardSummary, icon: "list-alt" },
+    { title: "Resumen", route: routes.dashboardSummary, icon: "stream" },
     { title: "Gastos", route: routes.dashboardExpends, icon: "list" },
     { title: "Adiciones", route: routes.dashboardAdditions, icon: "search-dollar" },
     { title: "Categorías", route: routes.dashboardCategories, icon: "th" },
