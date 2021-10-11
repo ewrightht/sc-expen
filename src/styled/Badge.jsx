@@ -1,9 +1,10 @@
+import { lighten } from "polished";
 import styled from "styled-components";
 
 export const Badge = styled.div`
   max-width: fit-content;
   padding: 2px 10px;
-  background: ${props => props.theme.palette.secondary};
+  background: ${props => lighten(0, props.theme.palette.primary)};
   color: ${props => props.theme.palette.white};
   border-radius: 10px;
   font-size: 12px;

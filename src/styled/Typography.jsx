@@ -7,6 +7,6 @@ export const Typography = styled.p`
   color: ${props => props.theme.palette[props.color] ||
     props.theme.palette.dark};
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
   display: inline-block;
 `;
