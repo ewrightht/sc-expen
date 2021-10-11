@@ -19,6 +19,7 @@ export const FlexContainer = styled.div`
     props.theme.components.container.alignItems[props.alignItems]
   };
   flex: ${props => props.flex && "1"};
+  flex-wrap: ${props => props.wrap && "wrap"};
   flex-direction: ${props =>
     props.theme.components.container.flexDirection[props.flexDirection] || "row"};
 `;

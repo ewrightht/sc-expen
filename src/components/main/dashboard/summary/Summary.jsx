@@ -10,6 +10,7 @@ import { Space } from "../../../../styled/Space";
 import { Typography } from "../../../../styled/Typography";
 
 import routes from "../../../../constants/routes";
+import SummaryCategories from "./summaryCategories/SummaryCategories";
 
 export default function Summary(props) {
   const {
@@ -53,6 +54,8 @@ export default function Summary(props) {
 
         <Space mt="20" />
         <SummaryTable />
+
+        <Space pb="30" />
       </Container>
     );
   }

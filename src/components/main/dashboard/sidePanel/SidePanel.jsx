@@ -36,6 +36,12 @@ export default function SidePanel() {
             Adiciones
           </Typography>
         </ListItem>
+        <ListItem to={routes.dashboardCategories} activeClassName="active">
+          <i className="fas fa-th"></i>
+          <Typography>
+            Categorías
+          </Typography>
+        </ListItem>
       </List>
     );
   }

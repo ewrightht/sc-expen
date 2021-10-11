@@ -18,6 +18,9 @@ const routes = {
   get dashboardAdditions() {
     return `${this.dashboard}/additions`;
   },
+  get dashboardCategories() {
+    return `${this.dashboard}/categories`;
+  },
   //
   get settings() {
     return `${this.main}/settings`;
