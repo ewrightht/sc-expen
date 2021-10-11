@@ -15,33 +15,26 @@ const SidePanelContainer = styled.div`
 
 export default function SidePanel() {
 
+  const listItems = [
+    { title: "Resumen", route: routes.dashboardSummary, icon: "list-alt" },
+    { title: "Gastos", route: routes.dashboardExpends, icon: "list" },
+    { title: "Adiciones", route: routes.dashboardAdditions, icon: "search-dollar" },
+    { title: "Categorías", route: routes.dashboardCategories, icon: "th" },
+  ];
+
+  function renderListItem() {
+    return listItems.map((item) => (
+      <ListItem key={item.title} to={item.route} activeClassName="active">
+        <i className={`fas fa-${item.icon}`}></i>
+        <Typography>{item.title}</Typography>
+      </ListItem>
+    ))
+  }
+
   function renderList() {
     return (
       <List>
-        <ListItem to={routes.dashboardSummary} activeClassName="active">
-          <i className="far fa-list-alt"></i>
-          <Typography>
-            Resumen
-          </Typography>
-        </ListItem>
-        <ListItem to={routes.dashboardExpends} activeClassName="active">
-          <i className="fas fa-list"></i>
-          <Typography>
-            Gastos
-          </Typography>
-        </ListItem>
-        <ListItem to={routes.dashboardAdditions} activeClassName="active">
-          <i className="fas fa-search-dollar"></i>
-          <Typography>
-            Adiciones
-          </Typography>
-        </ListItem>
-        <ListItem to={routes.dashboardCategories} activeClassName="active">
-          <i className="fas fa-th"></i>
-          <Typography>
-            Categorías
-          </Typography>
-        </ListItem>
+        {renderListItem()}
       </List>
     );
   }
