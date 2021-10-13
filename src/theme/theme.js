@@ -1,6 +1,6 @@
 const theme = {
   palette: {
-    primary: "#1e3799",
+    primary: "#6264A7",
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
@@ -15,9 +15,9 @@ const theme = {
     button: {
       fontSize: "14px",
       size: {
-        sm: "0px 10px",
-        md: "4px 12px",
-        lg: "8px 14px"
+        sm: "0px 16px",
+        md: "4px 18px",
+        lg: "8px 20px"
       }
     },
     card: {

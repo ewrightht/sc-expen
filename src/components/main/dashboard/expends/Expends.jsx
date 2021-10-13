@@ -9,7 +9,7 @@ import { TextField } from "../../../../styled/TextField";
 import { ContainedButton } from "../../../../styled/Button";
 
 export default function Expends(props) {
-  const { handleOpenAddBalanceModal = function () { } } = props;
+  const { handleOpenAddExpenseModal = function () { } } = props;
 
   function renderUI() {
     return (
@@ -27,7 +27,7 @@ export default function Expends(props) {
           <ContainedButton
             color="primary"
             size="md"
-            onClick={handleOpenAddBalanceModal}
+            onClick={handleOpenAddExpenseModal}
           >
             Agregar nuevo gasto
           </ContainedButton>

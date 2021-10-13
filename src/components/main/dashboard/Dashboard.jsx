@@ -39,7 +39,7 @@ export default function Dashboard() {
               />
             </Route>
             <Route exact path={routes.dashboardExpends} >
-              <Expends handleOpenAddBalanceModal={handleOpenAddBalanceModal} />
+              <Expends handleOpenAddExpenseModal={handleOpenAddExpenseModal} />
             </Route>
           </Switch>
         </FlexContainer>
