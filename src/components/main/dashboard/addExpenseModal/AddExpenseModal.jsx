@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from "../../../../styled/Modal";
+import Modal, { ModalDescription, ModalTitle } from "../../../../styled/Modal";
 import { ContainedButton, OutlinedButton } from "../../../../styled/Button";
 import { FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
@@ -12,13 +12,11 @@ export default function AddExpenseModal(props) {
   function renderUI() {
     return (
       <Modal {...props} size="sm">
-        <Typography size="1.3" weight="600">
-          Agregar nuevo gasto
-        </Typography>
+        <ModalTitle>Agregar un nuevo gasto</ModalTitle>
         <Space mt="10" />
-        <Typography color="gray">
+        <ModalDescription>
           Agrega un nuevo gasto a tu cuenta, este se sumará a tus gastos.
-        </Typography>
+        </ModalDescription>
         <Space mt="10" />
         <TextField
           type="number"
