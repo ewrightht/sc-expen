@@ -16,6 +16,20 @@ const ModalWrapper = styled.div`
   align-items: center;
 `;
 
+export const ModalTitle = styled.span`
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.5;
+`;
+
+export const ModalDescription = styled.p`
+  color: ${props => props.theme.palette.gray};
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+`;
+
 export default function Modal(props) {
   const { children, showModal, setShowModal, size } = props;
   const modalRef = useRef();
