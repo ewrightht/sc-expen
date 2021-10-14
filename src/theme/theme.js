@@ -8,7 +8,7 @@ const theme = {
     light: "#f3f2f1",
     gray: "#777777",
     dark: "#303132",
-    primaryDark: "#33344A",
+    primaryDark: "#464475",
     white: "#ffffff",
     black: "#000000"
   },
@@ -16,9 +16,9 @@ const theme = {
     button: {
       fontSize: "13px",
       size: {
-        sm: "0px 16px",
-        md: "4px 18px",
-        lg: "8px 20px"
+        sm: "0px 20px",
+        md: "4px 22px",
+        lg: "8px 24px"
       }
     },
     card: {
