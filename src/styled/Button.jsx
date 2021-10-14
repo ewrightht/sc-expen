@@ -45,7 +45,7 @@ export const OutlinedButton = styled(Button)`
 
   &:hover {
     background: ${props => 
-      lighten(0.4, props.theme.palette[props.color])
+      lighten(0.43, props.theme.palette[props.color])
     };
   }
 `;
