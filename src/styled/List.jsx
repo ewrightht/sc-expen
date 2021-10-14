@@ -18,7 +18,7 @@ export const ListItem = styled(NavLink)`
   
   > * {
     margin-right: 10px;
-    font-size: 0.9rem;
+    font-size: 0.8125rem;
   }
 
   &.${props => props.activeClassName} {

@@ -25,7 +25,7 @@ export const ModalTitle = styled.span`
 
 export const ModalDescription = styled.p`
   color: ${props => props.theme.palette.gray};
-  font-size: 0.9rem;
+  font-size: 13px;
   margin: 0;
   line-height: 1.5;
 `;
