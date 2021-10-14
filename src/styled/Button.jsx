@@ -10,7 +10,7 @@ export const Button = styled.button`
       props.theme.components.button.size[props.size] :
       props.theme.components.button.size.sm};
   border-radius: ${props => props.theme.borderRadius};
-  font-weight: 500;
+  font-weight: 600;
   background: ${props => lighten(0.4, props.theme.palette.primary)};
   width: ${props => props.fullWidth && "100%"};
   color: ${props => props.theme.palette.primary};

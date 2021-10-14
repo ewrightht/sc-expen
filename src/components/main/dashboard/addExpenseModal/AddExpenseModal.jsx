@@ -4,7 +4,6 @@ import { ContainedButton, OutlinedButton } from "../../../../styled/Button";
 import { FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
 import { TextField } from "../../../../styled/TextField";
-import { Typography } from "../../../../styled/Typography";
 
 export default function AddExpenseModal(props) {
   const { setShowModal } = props;
@@ -19,10 +18,24 @@ export default function AddExpenseModal(props) {
         </ModalDescription>
         <Space mt="10" />
         <TextField
-          type="number"
-          placeholder="Nuevo gasto"
+          type="text"
+          placeholder="Descripción"
           fullWidth
         />
+        <Space mt="10" />
+        <FlexContainer fluid justifiyContent="center">
+          <TextField
+            type="number"
+            placeholder="Monto"
+            fullWidth
+          />
+          <Space ml="10" />
+          <TextField
+            type="text"
+            placeholder="Categoría"
+            fullWidth
+          />
+        </FlexContainer>
         <Space mt="20" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton

@@ -11,7 +11,7 @@ export const List = styled.div`
 export const ListItem = styled(NavLink)`
   width: 100%;
   padding: 10px 20px;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: ${props => props.theme.borderRadius};
   cursor: pointer;
   color: ${props => props.theme.palette.dark};
