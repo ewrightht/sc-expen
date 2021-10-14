@@ -30,11 +30,12 @@ export const ModalDescription = styled.p`
 `;
 
 export default function Modal(props) {
-  const { children, showModal, setShowModal, size } = props;
+  const { children, showModal, setShowModal, size, onClose } = props;
   const modalRef = useRef();
 
   function handleCloseModal(event) {
     if (modalRef.current === event.target) {
+      onClose();
       setShowModal(false);
     }
   }

@@ -6,8 +6,31 @@ import { Typography } from "../../../styled/Typography";
 import { ContainedButton, OutlinedButton } from "../../../styled/Button";
 import { Space } from "../../../styled/Space";
 
+import { useForm } from "../../../hooks/useForm";
+
+const NO_REGISTERED_VALUES = {
+  registerPassword: "",
+  confirmPassword: ""
+};
+
 export default function LoginModal(props) {
   const { setShowModal } = props;
+
+  const [
+    formValues, handleInputChange, reset
+  ] = useForm(NO_REGISTERED_VALUES);
+
+  function isEmptyFields() {
+    let { registerPassword, confirmPassword } = formValues;
+    if (!registerPassword.length || !confirmPassword.length) {
+      return true;
+    }
+  }
+
+  function closeLoginForm() {
+    reset();
+    setShowModal(false);
+  }
 
   function renderRegisteredUser() {
     return (
@@ -29,7 +52,7 @@ export default function LoginModal(props) {
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
             color="primary"
-            onClick={() => setShowModal(false)}
+            onClick={closeLoginForm}
           >
             Cancelar
           </OutlinedButton>
@@ -58,24 +81,28 @@ export default function LoginModal(props) {
             type="password"
             fullWidth
             placeholder="Contraseña"
+            name="registerPassword"
+            onChange={handleInputChange}
           />
           <Space ml="10" />
           <TextField
             type="password"
             fullWidth
             placeholder="Confirmar contraseña"
+            name="confirmPassword"
+            onChange={handleInputChange}
           />
         </FlexContainer>
         <Space mt="20" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
             color="primary"
-            onClick={() => setShowModal(false)}
+            onClick={closeLoginForm}
           >
             Cancelar
           </OutlinedButton>
           <Space ml="5" />
-          <ContainedButton color="primary">
+          <ContainedButton color="primary" disabled={isEmptyFields()}>
             Confirmar
           </ContainedButton>
         </FlexContainer>
@@ -85,7 +112,7 @@ export default function LoginModal(props) {
 
   function renderUI() {
     return (
-      <Modal {...props} size="md">
+      <Modal {...props} size="md" onClose={closeLoginForm}>
         {renderNoRegisteredUser()}
       </Modal>
     );
