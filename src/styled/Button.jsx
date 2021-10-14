@@ -16,14 +16,14 @@ export const Button = styled.button`
   color: ${props => props.theme.palette.primary};
   font-size: ${props => props.theme.components.button.fontSize};
   :disabled {
-    background: #ccc;
-    color: #666;
+    background: #EDEBE9;
+    color: #CAC9C7;
     border-color: transparent;
     cursor: default;
 
     &:hover {
-      background: #ccc;
-      color: #666;
+      background: #EDEBE9;
+      color: #CAC9C7;
     }
   }
   cursor: pointer;
