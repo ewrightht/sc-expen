@@ -20,7 +20,7 @@ export default function AddBalanceModal(props) {
         <FlexContainer fluid>
           <TextField
             type="text"
-            placeholder="Nuevo balance"
+            placeholder="Descripción"
             fullWidth
           />
           <Space ml="10" />
