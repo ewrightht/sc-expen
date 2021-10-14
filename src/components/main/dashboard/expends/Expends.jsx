@@ -33,7 +33,7 @@ export default function Expends(props) {
           </ContainedButton>
         </FlexContainer>
 
-        <Space mt="20" />
+        <Space mt="30" />
         <ExpendsTable />
       </Container>
     );

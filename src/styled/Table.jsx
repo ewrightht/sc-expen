@@ -30,6 +30,6 @@ export const Table = styled.table`
   }
 
   td, th {
-    padding: 15px;
+    padding: 12px;
   }
 `;

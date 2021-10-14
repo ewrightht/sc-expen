@@ -16,7 +16,7 @@ const Item = styled(NavLink)`
     background: ${props => darken(0.1, props.theme.palette.primaryDark)};
   }
   &:hover {
-    background: ${props => darken(0.1, props.theme.palette.primary)};
+    background: ${props => darken(0.1, props.theme.palette.primaryDark)};
   }
 `;
 
