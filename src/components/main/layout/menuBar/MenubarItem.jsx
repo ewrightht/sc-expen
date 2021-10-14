@@ -13,7 +13,7 @@ const Item = styled(NavLink)`
   font-size: 16px;
   text-decoration: none;
   &.${props => props.activeClassName} {
-    background: ${props => darken(0.1, props.theme.palette.primary)};
+    background: ${props => darken(0.1, props.theme.palette.primaryDark)};
   }
   &:hover {
     background: ${props => darken(0.1, props.theme.palette.primary)};

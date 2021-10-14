@@ -8,12 +8,13 @@ const theme = {
     light: "#F2F3F5",
     gray: "#777777",
     dark: "#303132",
+    primaryDark: "#33344A",
     white: "#ffffff",
     black: "#000000"
   },
   components: {
     button: {
-      fontSize: "14px",
+      fontSize: "13px",
       size: {
         sm: "0px 16px",
         md: "4px 18px",
