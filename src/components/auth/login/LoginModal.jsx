@@ -9,8 +9,9 @@ import { Space } from "../../../styled/Space";
 import { useForm } from "../../../hooks/useForm";
 
 const NO_REGISTERED_VALUES = {
+  registerUsername: "",
   registerPassword: "",
-  confirmPassword: ""
+  confirmPassword: "",
 };
 
 export default function LoginModal(props) {
@@ -21,10 +22,10 @@ export default function LoginModal(props) {
   ] = useForm(NO_REGISTERED_VALUES);
 
   function isEmptyFields() {
-    let { registerPassword, confirmPassword } = formValues;
-    if (!registerPassword.length || !confirmPassword.length) {
-      return true;
-    }
+    let { registerUsername, registerPassword, confirmPassword } = formValues;
+    if (
+      !registerPassword.length || !confirmPassword.length || !registerUsername
+    ) return true;
   }
 
   function closeLoginForm() {
@@ -75,6 +76,14 @@ export default function LoginModal(props) {
         <Typography color="gray">
           Este correo no se ha registrado anteriormente, rellena los campos para continuar con el registro.
         </Typography>
+        <Space mt="10" />
+        <TextField
+          type="text"
+          fullWidth
+          placeholder="Nombre de usuario"
+          name="registerUsername"
+          onChange={handleInputChange}
+        />
         <Space mt="10" />
         <FlexContainer flex>
           <TextField
