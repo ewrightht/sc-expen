@@ -16,11 +16,10 @@ const ModalWrapper = styled.div`
   align-items: center;
 `;
 
-export const ModalTitle = styled.span`
+export const ModalTitle = styled.p`
   font-size: 1.3rem;
   font-weight: 600;
   margin: 0;
-  line-height: 1.5;
 `;
 
 export const ModalDescription = styled.p`

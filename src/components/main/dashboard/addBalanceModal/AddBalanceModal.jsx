@@ -4,7 +4,6 @@ import { ContainedButton, OutlinedButton } from "../../../../styled/Button";
 import { FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
 import { TextField } from "../../../../styled/TextField";
-import { Typography } from "../../../../styled/Typography";
 
 export default function AddBalanceModal(props) {
   const { setShowModal } = props;
@@ -18,11 +17,19 @@ export default function AddBalanceModal(props) {
           Agrega un nuevo balance a tu cuenta, este se sumará a tu balance actual.
         </ModalDescription>
         <Space mt="10" />
-        <TextField
-          type="number"
-          placeholder="Nuevo balance"
-          fullWidth
-        />
+        <FlexContainer fluid>
+          <TextField
+            type="text"
+            placeholder="Nuevo balance"
+            fullWidth
+          />
+          <Space ml="10" />
+          <TextField
+            type="number"
+            placeholder="Monto"
+            fullWidth
+          />
+        </FlexContainer>
         <Space mt="20" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
