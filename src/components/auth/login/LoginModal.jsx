@@ -21,7 +21,7 @@ export default function LoginModal(props) {
     formValues, handleInputChange, reset
   ] = useForm(NO_REGISTERED_VALUES);
 
-  function isEmptyFields() {
+  function emptyFields() {
     let { registerUsername, registerPassword, confirmPassword } = formValues;
     if (
       !registerPassword.length || !confirmPassword.length || !registerUsername
@@ -111,7 +111,7 @@ export default function LoginModal(props) {
             Cancelar
           </OutlinedButton>
           <Space ml="5" />
-          <ContainedButton color="primary" disabled={isEmptyFields()}>
+          <ContainedButton color="primary" disabled={emptyFields()}>
             Confirmar
           </ContainedButton>
         </FlexContainer>
