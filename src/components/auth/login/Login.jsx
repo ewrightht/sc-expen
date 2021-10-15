@@ -11,11 +11,21 @@ import { TextField } from "../../../styled/TextField";
 import { Typography } from "../../../styled/Typography";
 import LoginModal from "./LoginModal";
 
+import { useForm } from "../../../hooks/useForm";
+
+const LOGIN_FIELDS = { loginEmail: "" };
+
 export default function Login() {
   const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [formValues, handleInputChange] = useForm(LOGIN_FIELDS);
 
   function handleOpenLoginModal() {
     setOpenLoginModal(true);
+  }
+
+  function isEmptyField() {
+    let { loginEmail } = formValues;
+    if (!loginEmail.length) return true;
   }
 
   function handleSubmit(event) {
@@ -45,6 +55,8 @@ export default function Login() {
               type="email"
               fullWidth
               placeholder="Correo electrónico"
+              name="loginEmail"
+              onClick={handleInputChange}
             />
             <Space mt="10" />
             <ContainedButton
@@ -53,6 +65,7 @@ export default function Login() {
               size="lg"
               fullWidth
               onClick={handleOpenLoginModal}
+              disabled={isEmptyField()}
             >
               Iniciar sesión
             </ContainedButton>
