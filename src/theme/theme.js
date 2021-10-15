@@ -1,6 +1,6 @@
 const theme = {
   palette: {
-    primary: "#6264A7",
+    primary: "#114f8c",
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
@@ -8,7 +8,7 @@ const theme = {
     light: "#f3f2f1",
     gray: "#777777",
     dark: "#303132",
-    primaryDark: "#464475",
+    primaryDark: "#0a2f54",
     white: "#ffffff",
     black: "#000000"
   },
