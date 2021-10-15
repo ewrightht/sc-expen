@@ -56,7 +56,7 @@ export default function Login() {
               fullWidth
               placeholder="Correo electrónico"
               name="loginEmail"
-              onClick={handleInputChange}
+              onChange={handleInputChange}
             />
             <Space mt="10" />
             <ContainedButton
