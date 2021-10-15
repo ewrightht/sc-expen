@@ -65,7 +65,6 @@ export default function Login() {
               size="lg"
               fullWidth
               onClick={handleOpenLoginModal}
-              disabled={isEmptyField()}
             >
               Iniciar sesión
             </ContainedButton>
