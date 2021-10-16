@@ -10,7 +10,7 @@ export default function AddBalanceModal(props) {
 
   function renderUI() {
     return (
-      <Modal {...props} size="sm">
+      <Modal {...props} size="sm" onClose={() => setShowModal(false)}>
         <ModalTitle>Agregar un nuevo balance</ModalTitle>
         <Space mt="10" />
         <ModalDescription>

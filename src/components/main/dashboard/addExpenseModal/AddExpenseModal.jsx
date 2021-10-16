@@ -10,7 +10,7 @@ export default function AddExpenseModal(props) {
 
   function renderUI() {
     return (
-      <Modal {...props} size="sm">
+      <Modal {...props} size="sm" onClose={() => setShowModal(false)}>
         <ModalTitle>Agregar un nuevo gasto</ModalTitle>
         <Space mt="10" />
         <ModalDescription>

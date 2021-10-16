@@ -32,10 +32,10 @@ export default function ExpendsTable() {
             <span>
               <i className="far fa-file-alt fa-lg"></i>
               <Space ml="20" />
-              <span></span>
+              <span>{name}</span>
             </span>
           </td>
-          <td>{name}</td>
+          <td></td>
           <td>${pantone_value}</td>
           <td>
             <Badge color={color}>
