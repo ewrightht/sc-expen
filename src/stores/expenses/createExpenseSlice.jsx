@@ -7,8 +7,10 @@ export const createExpenseSlice = (set, get) => ({
   getExpenses: async function () {
     try {
       set({ isLoading: true });
+      const source = axios.CancelToken.source();
+
       let absoluteUrl = "https://reqres.in/api/unknown";
-      let { data } = await axios.get(absoluteUrl);
+      let { data } = await axios.get(absoluteUrl, { cancelToken: source.token });
       set({ expenses: data.data });
 
     } catch (error) {

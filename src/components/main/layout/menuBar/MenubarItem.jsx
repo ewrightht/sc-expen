@@ -9,14 +9,14 @@ const Item = styled(NavLink)`
   width: 100%;
   height: 65px;
   cursor: pointer;
-  color: white;
+  color: ${props => props.theme.palette.white};
   font-size: 16px;
   text-decoration: none;
   &.${props => props.activeClassName} {
-    background: ${props => darken(0.1, props.theme.palette.primaryDark)};
+    background: ${props => darken(0.1, props.theme.palette.primary)};
   }
   &:hover {
-    background: ${props => darken(0.1, props.theme.palette.primaryDark)};
+    background: ${props => darken(0.1, props.theme.palette.primary)};
   }
 `;
 

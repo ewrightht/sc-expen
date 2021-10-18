@@ -1,14 +1,13 @@
 const theme = {
   palette: {
-    primary: "#114f8c",
+    primary: "#174bb4",
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
     success: "#59c649",
-    light: "#f3f2f1",
+    light: "#F2F3F5",
     gray: "#777777",
     dark: "#303132",
-    primaryDark: "#0a2f54",
     white: "#ffffff",
     black: "#000000"
   },
