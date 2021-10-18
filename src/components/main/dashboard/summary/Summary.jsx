@@ -21,19 +21,29 @@ export default function Summary(props) {
   function renderUI() {
     return (
       <Container>
-        <Typography size="1.5" weight="700">
-          Resumen
-        </Typography>
+        <FlexContainer flexDirection="column">
+          <Typography size="1.5" weight="700">
+            Resumen
+          </Typography>
+          <Typography size="0.9">
+            Mira aquí un resumen de tus gastos de manera rápida.
+          </Typography>
+        </FlexContainer>
 
-        <Space mt="10" />
+        <Space mt="20" />
         <SummaryItems />
 
         <Space mt="30" />
-        <Typography size="1.5" weight="700">
-          Actividad reciente
-        </Typography>
+        <FlexContainer flexDirection="column">
+          <Typography size="1.5" weight="700">
+            Actividad Renciente
+          </Typography>
+          <Typography size="0.9">
+            Realiza acciones para agregar balance o gastos directamente.
+          </Typography>
+        </FlexContainer>
 
-        <Space mt="10" />
+        <Space mt="20" />
         <FlexContainer justifyContent="start" alignItems="center" >
           <ContainedButton color="primary" onClick={handleOpenAddExpenseModal}>
             Agregar nuevo gasto
