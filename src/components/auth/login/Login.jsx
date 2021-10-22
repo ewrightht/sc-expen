@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import shallow from "zustand/shallow";
 
 import LoginImage from '../../../assets/images/login.svg';
 
@@ -12,24 +13,25 @@ import { Typography } from "../../../styled/Typography";
 import LoginModal from "./LoginModal";
 
 import { useForm } from "../../../hooks/useForm";
+import { useStores } from "../../../stores/useStores";
 
 const LOGIN_FIELDS = { loginEmail: "" };
 
 export default function Login() {
-  const [openLoginModal, setOpenLoginModal] = useState(false);
+  const [openLoginModal, setOpenLoginModal] = useState({ visible: false });
   const [formValues, handleInputChange] = useForm(LOGIN_FIELDS);
 
-  function handleOpenLoginModal() {
-    setOpenLoginModal(true);
-  }
+  const { isLoading, validEmail } = useStores(state => ({
+    isLoading: state.isLoading,
+    validEmail: state.validEmail
+  }), shallow);
 
-  function isEmptyField() {
-    let { loginEmail } = formValues;
-    if (!loginEmail.length) return true;
-  }
+  let { loginEmail } = formValues;
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const responseEmail = await validEmail(loginEmail);
+    setOpenLoginModal({ visible: true, responseEmail });
   }
 
   function renderUI() {
@@ -57,6 +59,8 @@ export default function Login() {
               placeholder="Correo electrónico"
               name="loginEmail"
               onChange={handleInputChange}
+              autoComplete="off"
+              required
             />
             <Space mt="10" />
             <ContainedButton
@@ -64,7 +68,7 @@ export default function Login() {
               color="primary"
               size="lg"
               fullWidth
-              onClick={handleOpenLoginModal}
+              disabled={isLoading}
             >
               Iniciar sesión
             </ContainedButton>

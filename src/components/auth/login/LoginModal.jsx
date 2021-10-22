@@ -1,6 +1,7 @@
 import React from "react";
-import Modal from "../../../styled/Modal";
+import shallow from "zustand/shallow";
 
+import Modal from "../../../styled/Modal";
 import { FlexContainer } from "../../../styled/Container";
 import { TextField } from "../../../styled/TextField";
 import { Typography } from "../../../styled/Typography";
@@ -8,6 +9,7 @@ import { ContainedButton, OutlinedButton } from "../../../styled/Button";
 import { Space } from "../../../styled/Space";
 
 import { useForm } from "../../../hooks/useForm";
+import { useStores } from "../../../stores/useStores";
 
 const NO_REGISTERED_VALUES = {
   registerUsername: "",
@@ -16,11 +18,15 @@ const NO_REGISTERED_VALUES = {
 };
 
 export default function LoginModal(props) {
-  const { setShowModal } = props;
+  const { setShowModal, showModal } = props;
 
   const [
     formValues, handleInputChange, reset
   ] = useForm(NO_REGISTERED_VALUES);
+
+  const { registerUser = function () {} } = useStores(state => ({
+    registerUser: state.registerUser
+  }), shallow);
 
   function emptyFields() {
     let { registerUsername, registerPassword, confirmPassword } = formValues;
@@ -29,12 +35,22 @@ export default function LoginModal(props) {
     ) return true;
   }
 
-  function closeLoginForm() {
-    reset();
-    setShowModal(false);
+  async function handleRegisterSubmit(event) {
+    event.preventDefault();
+    const { registerUsername, registerPassword } = formValues;
+    const responseRegister = await registerUser(
+      showModal.responseEmail.email,
+      registerUsername,
+      registerPassword
+    );
   }
 
-  function renderRegisteredUser() {
+  function closeLoginForm() {
+    reset();
+    setShowModal((prevState) => ({ ...prevState, visible: false }));
+  }
+
+  function renderLoginUser() {
     return (
       <>
         <Typography size="1.3" weight="600">
@@ -69,7 +85,7 @@ export default function LoginModal(props) {
 
   function renderNoRegisteredUser() {
     return (
-      <>
+      <form onSubmit={handleRegisterSubmit}>
         <Typography size="1.3" weight="600">
           Crea tu nueva cuenta
         </Typography>
@@ -84,6 +100,7 @@ export default function LoginModal(props) {
           placeholder="Nombre de usuario"
           name="registerUsername"
           onChange={handleInputChange}
+          required
         />
         <Space mt="10" />
         <FlexContainer flex>
@@ -93,6 +110,7 @@ export default function LoginModal(props) {
             placeholder="Contraseña"
             name="registerPassword"
             onChange={handleInputChange}
+            required
           />
           <Space ml="10" />
           <TextField
@@ -101,6 +119,7 @@ export default function LoginModal(props) {
             placeholder="Confirmar contraseña"
             name="confirmPassword"
             onChange={handleInputChange}
+            required
           />
         </FlexContainer>
         <Space mt="20" />
@@ -112,18 +131,28 @@ export default function LoginModal(props) {
             Cancelar
           </OutlinedButton>
           <Space ml="5" />
-          <ContainedButton color="primary" disabled={emptyFields()}>
+          <ContainedButton
+            type="submit"
+            color="primary"
+            disabled={emptyFields()}
+          >
             Confirmar
           </ContainedButton>
         </FlexContainer>
-      </>
+      </form>
     );
   }
 
   function renderUI() {
     return (
-      <Modal {...props} size="md" onClose={closeLoginForm}>
-        {renderNoRegisteredUser()}
+      <Modal
+        showModal={showModal.visible}
+        setShowModal={setShowModal}
+        size="md"
+        onClose={closeLoginForm}
+      >
+        {showModal.responseEmail?.status === "NEW" && renderNoRegisteredUser()}
+        {showModal.responseEmail?.status === "EXISTS" && renderLoginUser()}
       </Modal>
     );
   }
