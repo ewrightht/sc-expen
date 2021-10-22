@@ -27,8 +27,6 @@ export const createAuthSlice = (set, get) => ({
       set({ isLoading: true });
       let absoluteUrl = "http://localhost:5000/api/auth/new";
       let { data } = await axios.post(absoluteUrl, { email, username, password });
-
-      return data;
       
     } catch (error) {
       throw new Error(error);
