@@ -24,7 +24,7 @@ export default function LoginModal(props) {
     formValues, handleInputChange, reset
   ] = useForm(NO_REGISTERED_VALUES);
 
-  const { registerUser = function () {} } = useStores(state => ({
+  const { registerUser = function () { } } = useStores(state => ({
     registerUser: state.registerUser
   }), shallow);
 
@@ -37,17 +37,21 @@ export default function LoginModal(props) {
 
   async function handleRegisterSubmit(event) {
     event.preventDefault();
-    const { registerUsername, registerPassword } = formValues;
-    const responseRegister = await registerUser(
-      showModal.responseEmail.email,
-      registerUsername,
-      registerPassword
-    );
+    const { registerUsername, registerPassword, confirmPassword } = formValues;
+    if (registerPassword === confirmPassword) {
+      await registerUser(
+        showModal.responseEmail.email,
+        registerUsername,
+        registerPassword
+      );
+    } else {
+      alert("Las contraseñas no coinciden");
+    }
   }
 
   function closeLoginForm() {
     reset();
-    setShowModal((prevState) => ({ ...prevState, visible: false }));
+    setShowModal({ visible: false });
   }
 
   function renderLoginUser() {

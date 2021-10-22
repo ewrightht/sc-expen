@@ -36,7 +36,7 @@ export default function Modal(props) {
   function handleCloseModal(event) {
     if (modalRef.current === event.target) {
       onClose();
-      setShowModal(false);
+      setShowModal({ visible: false });
     }
   }
 
