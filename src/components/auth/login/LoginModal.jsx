@@ -39,11 +39,12 @@ export default function LoginModal(props) {
     event.preventDefault();
     const { registerUsername, registerPassword, confirmPassword } = formValues;
     if (registerPassword === confirmPassword) {
-      await registerUser(
+      const registerResponse = await registerUser(
         showModal.responseEmail.email,
         registerUsername,
         registerPassword
       );
+      
     } else {
       alert("Las contraseñas no coinciden");
     }
@@ -155,8 +156,8 @@ export default function LoginModal(props) {
         size="md"
         onClose={closeLoginForm}
       >
-        {showModal.responseEmail?.status === "NEW" && renderNoRegisteredUser()}
-        {showModal.responseEmail?.status === "EXISTS" && renderLoginUser()}
+        {showModal.responseEmail?.account === "NEW" && renderNoRegisteredUser()}
+        {showModal.responseEmail?.account === "EXIST" && renderLoginUser()}
       </Modal>
     );
   }
