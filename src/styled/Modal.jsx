@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, Fragment } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -14,6 +14,7 @@ const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 1s ease-out;
 `;
 
 export const ModalTitle = styled.p`
@@ -42,15 +43,18 @@ export default function Modal(props) {
 
   function renderUI() {
     return (
-      <>
+      <Fragment>
         {showModal ? (
-          <ModalWrapper ref={modalRef} onClick={handleCloseModal}>
+          <ModalWrapper
+            ref={modalRef}
+            onClick={handleCloseModal}
+          >
             <Card size={size}>{children}</Card>
           </ModalWrapper>
         ) : (
           null
         )}
-      </>
+      </Fragment>
     );
   }
 
