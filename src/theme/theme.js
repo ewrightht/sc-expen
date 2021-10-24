@@ -1,6 +1,6 @@
 const theme = {
   palette: {
-    primary: "#0747a6",
+    primary: "#0a3d62",
     secondary: "#6c5ce7",
     danger: "#f53b57",
     warning: "#ffc048",
@@ -15,9 +15,9 @@ const theme = {
     button: {
       fontSize: "13px",
       size: {
-        sm: "0px 20px",
-        md: "4px 22px",
-        lg: "8px 24px"
+        sm: "0px 10px",
+        md: "4px 14px",
+        lg: "8px 18px"
       }
     },
     card: {
@@ -50,7 +50,7 @@ const theme = {
       }
     }
   },
-  borderRadius: "3px",
+  borderRadius: "0.3rem",
   boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
 };
 
