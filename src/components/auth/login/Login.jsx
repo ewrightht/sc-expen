@@ -35,8 +35,8 @@ export default function Login() {
     if (status === "ok") {
       setOpenLoginModal({ visible: true, email, account });
     }
-    if (status === "error") {
-      toast.error(errors.email.msg);
+    if (errors) {
+      toast.error(errors[Object.keys(errors)[0]].msg);
     }
   }
 

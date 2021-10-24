@@ -11,6 +11,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Routes />
       <ToastContainer
+        style={{ fontSize: "13px" }}
         position="top-right"
         transition={Zoom}
         pauseOnHover

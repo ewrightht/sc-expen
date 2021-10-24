@@ -45,16 +45,11 @@ export default function LoginModal(props) {
     } = registerFormValues;
 
     if (registerPassword === confirmPassword) {
-      const { status, message } = await registerUser(
+      await registerUser(
         showModal.email,
         registerUsername,
         registerPassword
       );
-
-      if (status === "ok") {
-        toast.success(message);
-      }
-
     } else {
       toast.error("Aségurate que las contraseñas coincidan");
     }
@@ -65,14 +60,9 @@ export default function LoginModal(props) {
     const { loginPassword } = loginFormValues;
 
     if (loginPassword.length > 0) {
-      const loginResponse = await loginUser(
-        showModal.email,
-        loginPassword
-      );
-      console.log(loginResponse);
-
+      await loginUser(showModal.email, loginPassword);
     } else {
-
+      toast.error("Por favor, ingrese la contraseña de su cuenta.");
     }
   }
 
@@ -99,6 +89,7 @@ export default function LoginModal(props) {
           placeholder="Contraseña"
           name="loginPassword"
           onChange={handleInputLoginChange}
+          required
         />
         <Space mt="15" />
         <FlexContainer fluid justifyContent="end">
