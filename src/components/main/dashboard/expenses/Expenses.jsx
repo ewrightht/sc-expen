@@ -1,6 +1,6 @@
 import React from "react";
 
-import ExpendsTable from "./expendsTable/ExpendsTable";
+import ExpensesTable from "./expensesTable/ExpensesTable";
 
 import { Container, FlexContainer } from "../../../../styled/Container";
 import { Space } from "../../../../styled/Space";
@@ -8,7 +8,7 @@ import { Typography } from "../../../../styled/Typography";
 import { TextField } from "../../../../styled/TextField";
 import { ContainedButton } from "../../../../styled/Button";
 
-export default function Expends(props) {
+export default function Expenses(props) {
   const { handleOpenAddExpenseModal = function () { } } = props;
 
   function renderUI() {
@@ -38,7 +38,7 @@ export default function Expends(props) {
         </FlexContainer>
 
         <Space mt="30" />
-        <ExpendsTable />
+        <ExpensesTable />
       </Container>
     );
   }

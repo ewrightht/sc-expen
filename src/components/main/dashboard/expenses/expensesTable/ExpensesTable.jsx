@@ -7,7 +7,7 @@ import { Table } from "../../../../../styled/Table";
 
 import { useStores } from "../../../../../stores/useStores";
 
-export default function ExpendsTable() {
+export default function ExpensesTable() {
   const { isLoading, expenses, getExpenses } = useStores(state => ({
     isLoading: state.isLoading,
     expenses: state.expenses,

@@ -4,7 +4,7 @@ import routes from "../../../constants/routes";
 
 import { FlexContainer } from "../../../styled/Container";
 import SidePanel from "./sidePanel/SidePanel";
-import Expends from "./expends/Expends";
+import Expenses from "./expenses/Expenses";
 import Summary from "./summary/Summary";
 import AddBalanceModal from "./addBalanceModal/AddBalanceModal";
 import AddExpenseModal from "./addExpenseModal/AddExpenseModal";
@@ -39,7 +39,7 @@ export default function Dashboard() {
               />
             </Route>
             <Route exact path={routes.dashboardExpends} >
-              <Expends handleOpenAddExpenseModal={handleOpenAddExpenseModal} />
+              <Expenses handleOpenAddExpenseModal={handleOpenAddExpenseModal} />
             </Route>
           </Switch>
         </FlexContainer>
