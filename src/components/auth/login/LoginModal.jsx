@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import shallow from "zustand/shallow";
+import { toast, ToastContainer } from "react-toastify";
 
 import Modal from "../../../styled/Modal";
 import { FlexContainer } from "../../../styled/Container";
@@ -11,53 +12,79 @@ import { Space } from "../../../styled/Space";
 import { useForm } from "../../../hooks/useForm";
 import { useStores } from "../../../stores/useStores";
 
-const NO_REGISTERED_VALUES = {
+const UNREGISTERED_USER_VALUES = {
   registerUsername: "",
   registerPassword: "",
   confirmPassword: "",
+};
+
+const REGISTERED_USER_VALUES = {
+  loginPassword: ""
 };
 
 export default function LoginModal(props) {
   const { setShowModal, showModal } = props;
 
   const [
-    formValues, handleInputChange, reset
-  ] = useForm(NO_REGISTERED_VALUES);
+    registerFormValues, handleInputRegisterChange, registerResetFields
+  ] = useForm(UNREGISTERED_USER_VALUES);
 
-  const { registerUser = function () { } } = useStores(state => ({
-    registerUser: state.registerUser
+  const [
+    loginFormValues, handleInputLoginChange, loginResetFields
+  ] = useForm(REGISTERED_USER_VALUES);
+
+  const { registerUser, loginUser } = useStores(state => ({
+    registerUser: state.registerUser,
+    loginUser: state.loginUser,
   }), shallow);
-
-  function emptyFields() {
-    let { registerUsername, registerPassword, confirmPassword } = formValues;
-    if (
-      !registerPassword.length || !confirmPassword.length || !registerUsername
-    ) return true;
-  }
 
   async function handleRegisterSubmit(event) {
     event.preventDefault();
-    const { registerUsername, registerPassword, confirmPassword } = formValues;
+    const {
+      registerUsername, registerPassword, confirmPassword
+    } = registerFormValues;
+
     if (registerPassword === confirmPassword) {
-      const registerResponse = await registerUser(
-        showModal.responseEmail.email,
+      const { status, message } = await registerUser(
+        showModal.email,
         registerUsername,
         registerPassword
       );
-      
+
+      if (status === "ok") {
+        toast.success(message);
+      }
+
     } else {
-      alert("Las contraseñas no coinciden");
+      toast.error("Aségurate que las contraseñas coincidan");
+    }
+  }
+
+  async function handleLoginSubmit(event) {
+    event.preventDefault();
+    const { loginPassword } = loginFormValues;
+
+    if (loginPassword.length > 0) {
+      const loginResponse = await loginUser(
+        showModal.email,
+        loginPassword
+      );
+      console.log(loginResponse);
+
+    } else {
+
     }
   }
 
   function closeLoginForm() {
-    reset();
+    registerResetFields();
+    loginResetFields();
     setShowModal({ visible: false });
   }
 
   function renderLoginUser() {
     return (
-      <>
+      <form onSubmit={handleLoginSubmit}>
         <Typography size="1.3" weight="600">
           Ya estás registado
         </Typography>
@@ -70,6 +97,8 @@ export default function LoginModal(props) {
           type="password"
           fullWidth
           placeholder="Contraseña"
+          name="loginPassword"
+          onChange={handleInputLoginChange}
         />
         <Space mt="15" />
         <FlexContainer fluid justifyContent="end">
@@ -80,11 +109,14 @@ export default function LoginModal(props) {
             Cancelar
           </OutlinedButton>
           <Space ml="5" />
-          <ContainedButton color="primary">
+          <ContainedButton
+            color="primary"
+            type="submit"
+          >
             Confirmar
           </ContainedButton>
         </FlexContainer>
-      </>
+      </form>
     );
   }
 
@@ -104,7 +136,7 @@ export default function LoginModal(props) {
           fullWidth
           placeholder="Nombre de usuario"
           name="registerUsername"
-          onChange={handleInputChange}
+          onChange={handleInputRegisterChange}
           required
         />
         <Space mt="10" />
@@ -114,7 +146,7 @@ export default function LoginModal(props) {
             fullWidth
             placeholder="Contraseña"
             name="registerPassword"
-            onChange={handleInputChange}
+            onChange={handleInputRegisterChange}
             required
           />
           <Space ml="10" />
@@ -123,7 +155,7 @@ export default function LoginModal(props) {
             fullWidth
             placeholder="Confirmar contraseña"
             name="confirmPassword"
-            onChange={handleInputChange}
+            onChange={handleInputRegisterChange}
             required
           />
         </FlexContainer>
@@ -139,7 +171,6 @@ export default function LoginModal(props) {
           <ContainedButton
             type="submit"
             color="primary"
-            disabled={emptyFields()}
           >
             Confirmar
           </ContainedButton>
@@ -156,8 +187,8 @@ export default function LoginModal(props) {
         size="md"
         onClose={closeLoginForm}
       >
-        {showModal.responseEmail?.account === "NEW" && renderNoRegisteredUser()}
-        {showModal.responseEmail?.account === "EXIST" && renderLoginUser()}
+        {showModal.account === "NEW" && renderNoRegisteredUser()}
+        {showModal.account === "EXIST" && renderLoginUser()}
       </Modal>
     );
   }

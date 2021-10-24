@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import shallow from "zustand/shallow";
+import { toast } from "react-toastify";
 
 import LoginImage from '../../../assets/images/login.svg';
 
@@ -30,8 +31,13 @@ export default function Login() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const responseEmail = await validEmail(loginEmail);
-    setOpenLoginModal({ visible: true, responseEmail });
+    const { status, email, account, errors } = await validEmail(loginEmail);
+    if (status === "ok") {
+      setOpenLoginModal({ visible: true, email, account });
+    }
+    if (status === "error") {
+      toast.error(errors.email.msg);
+    }
   }
 
   function renderUI() {
