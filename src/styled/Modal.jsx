@@ -1,20 +1,45 @@
 import React, { useRef, Fragment } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { Card } from "./Card";
+
+const slip = keyframes`
+  from {
+    transform: translateY(-50px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+`;
+
+const opacity = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
 
 const ModalWrapper = styled.div`
   width: 100%;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   position: fixed;
   z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 1s ease-out;
+  animation: ${opacity} .2s ease-out;
+
+  ${Card} {
+    animation: ${slip} .5s ease-out;
+  }
+
 `;
 
 export const ModalTitle = styled.p`
