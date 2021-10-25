@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import { Redirect, Switch, Route } from "react-router-dom";
 import routes from "../../../constants/routes";
 
 import { FlexContainer } from "../../../styled/Container";
 import SidePanel from "./sidePanel/SidePanel";
-import Expenses from "./expenses/Expenses";
-import Summary from "./summary/Summary";
+const Expenses = lazy(() => import("./expenses/Expenses"));
+const Summary = lazy(() => import("./summary/Summary"));
+
 import AddBalanceModal from "./addBalanceModal/AddBalanceModal";
 import AddExpenseModal from "./addExpenseModal/AddExpenseModal";
+import { Loader } from "../../../styled/Loader";
 
 export default function Dashboard() {
   const [openAddBalanceModal, setOpenAddBalanceModal] = useState(false);
@@ -26,22 +28,24 @@ export default function Dashboard() {
       <>
         <SidePanel />
         <FlexContainer fluid flex style={{ overflowY: "auto" }}>
-          <Switch>
-            <Redirect
-              exact
-              from={routes.dashboard}
-              to={routes.dashboardSummary}
-            />
-            <Route exact path={routes.dashboardSummary} >
-              <Summary
-                handleOpenAddBalanceModal={handleOpenAddBalanceModal}
-                handleOpenAddExpenseModal={handleOpenAddExpenseModal}
+          <Suspense fallback={<Loader />}>
+            <Switch>
+              <Redirect
+                exact
+                from={routes.dashboard}
+                to={routes.dashboardSummary}
               />
-            </Route>
-            <Route exact path={routes.dashboardExpends} >
-              <Expenses handleOpenAddExpenseModal={handleOpenAddExpenseModal} />
-            </Route>
-          </Switch>
+              <Route exact path={routes.dashboardSummary} >
+                <Summary
+                  handleOpenAddBalanceModal={handleOpenAddBalanceModal}
+                  handleOpenAddExpenseModal={handleOpenAddExpenseModal}
+                />
+              </Route>
+              <Route exact path={routes.dashboardExpends} >
+                <Expenses handleOpenAddExpenseModal={handleOpenAddExpenseModal} />
+              </Route>
+            </Switch>
+          </Suspense>
         </FlexContainer>
 
         <AddBalanceModal

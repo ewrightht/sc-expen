@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import shallow from "zustand/shallow";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 import Modal from "../../../styled/Modal";
 import { FlexContainer } from "../../../styled/Container";
