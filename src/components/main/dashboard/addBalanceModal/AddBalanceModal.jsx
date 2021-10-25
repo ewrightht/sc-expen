@@ -6,11 +6,15 @@ import { Space } from "../../../../styled/Space";
 import { TextField } from "../../../../styled/TextField";
 
 export default function AddBalanceModal(props) {
-  const { setShowModal } = props;
+  const { showModal, setShowModal } = props;
 
   function renderUI() {
     return (
-      <Modal {...props} size="sm" onClose={() => setShowModal(false)}>
+      <Modal
+        showModal={showModal.visible}
+        size="sm"
+        onClose={() => setShowModal({ visible: false })}
+      >
         <ModalTitle>Agregar un nuevo balance</ModalTitle>
         <Space mt="10" />
         <ModalDescription>

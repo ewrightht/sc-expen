@@ -12,15 +12,15 @@ import AddExpenseModal from "./addExpenseModal/AddExpenseModal";
 import { Loader } from "../../../styled/Loader";
 
 export default function Dashboard() {
-  const [openAddBalanceModal, setOpenAddBalanceModal] = useState(false);
-  const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
+  const [openAddBalanceModal, setOpenAddBalanceModal] = useState({ visible: false });
+  const [openAddExpenseModal, setOpenAddExpenseModal] = useState({ visible: false });
 
   function handleOpenAddBalanceModal() {
-    setOpenAddBalanceModal(true);
+    setOpenAddBalanceModal({ visible: true });
   }
 
   function handleOpenAddExpenseModal() {
-    setOpenAddExpenseModal(true);
+    setOpenAddExpenseModal({ visible: true });
   }
 
   function renderUI() {

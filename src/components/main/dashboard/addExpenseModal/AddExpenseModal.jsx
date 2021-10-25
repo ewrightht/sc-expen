@@ -6,11 +6,15 @@ import { Space } from "../../../../styled/Space";
 import { TextField } from "../../../../styled/TextField";
 
 export default function AddExpenseModal(props) {
-  const { setShowModal } = props;
+  const { showModal, setShowModal } = props;
 
   function renderUI() {
     return (
-      <Modal {...props} size="sm" onClose={() => setShowModal(false)}>
+      <Modal
+        showModal={showModal.visible}
+        size="sm"
+        onClose={() => setShowModal(false)}
+      >
         <ModalTitle>Agregar un nuevo gasto</ModalTitle>
         <Space mt="10" />
         <ModalDescription>
