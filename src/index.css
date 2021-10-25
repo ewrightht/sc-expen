@@ -18,3 +18,7 @@ tbody, td, tfoot, th, thead, tr {
   border-style: solid;
   border-width: 0;
 }
+
+a {
+  text-decoration: none;
+}

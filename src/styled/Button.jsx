@@ -4,6 +4,11 @@ import { darken, lighten } from "polished";
 export const Button = styled.button`
   border: 1px solid transparent;
   line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  user-select: none;
   outline: none;
   padding: ${props =>
     props.size ?
