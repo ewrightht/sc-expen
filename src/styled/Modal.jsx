@@ -7,7 +7,7 @@ import { Card } from "./Card";
 
 const slip = keyframes`
   from {
-    transform: translateY(-50px);
+    transform: translateY(-30px);
   }
 
   to {
@@ -37,7 +37,7 @@ const ModalWrapper = styled.div`
   animation: ${opacity} .2s ease-out;
 
   ${Card} {
-    animation: ${slip} .5s ease-out;
+    animation: ${slip} .4s ease-out;
   }
 
 `;
