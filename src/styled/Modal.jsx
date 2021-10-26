@@ -34,10 +34,10 @@ const ModalWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: ${opacity} .2s ease-out;
+  animation: ${opacity} .2s ease-in-out;
 
   ${Card} {
-    animation: ${slip} .4s ease-out;
+    animation: ${slip} .4s ease-in-out;
   }
 
 `;
