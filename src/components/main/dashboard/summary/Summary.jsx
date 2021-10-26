@@ -46,10 +46,14 @@ export default function Summary(props) {
         <Space mt="20" />
         <FlexContainer justifyContent="start" alignItems="center" >
           <ContainedButton color="primary" onClick={handleOpenAddExpenseModal}>
+            <i className="fas fa-plus"></i>
+            <Space ml="7" />
             Agregar nuevo gasto
           </ContainedButton>
           <Space ml="10" />
           <ContainedButton color="primary" onClick={handleOpenAddBalanceModal}>
+            <i className="fas fa-plus"></i>
+            <Space ml="7" />
             Agregar nuevo balance
           </ContainedButton>
           <Space ml="10" />
