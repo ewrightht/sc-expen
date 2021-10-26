@@ -44,8 +44,6 @@ export default function AddBalanceModal(props) {
           </OutlinedButton>
           <Space ml="5" />
           <ContainedButton color="primary">
-            <i className="fas fa-check"></i>
-            <Space mr="5" />
             Confirmar
           </ContainedButton>
         </FlexContainer>

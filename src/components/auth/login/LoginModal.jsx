@@ -176,7 +176,6 @@ export default function LoginModal(props) {
         showModal={showModal.visible}
         setShowModal={setShowModal}
         size="md"
-        onClose={closeLoginForm}
       >
         {showModal.account === "NEW" && renderNoRegisteredUser()}
         {showModal.account === "EXIST" && renderLoginUser()}
