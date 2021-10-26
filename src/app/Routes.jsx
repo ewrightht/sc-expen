@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
+import PrivateRoute from "./routeComponents/PrivateRoute";
 import routes from "../constants/routes";
 
 import { Loader } from "../styled/Loader";
@@ -21,7 +22,7 @@ export default function Routes() {
               to={routes.login}
             />
             <Route exact path={routes.login} component={Login} />
-            <Route path={routes.main} component={Main} />
+            <PrivateRoute path={routes.main} component={Main} />
           </Switch>
         </Suspense>
       </BrowserRouter>
