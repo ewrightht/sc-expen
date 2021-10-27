@@ -22,8 +22,7 @@ export default function Login() {
   const [openLoginModal, setOpenLoginModal] = useState({ visible: false });
   const [formValues, handleInputChange] = useForm(LOGIN_FIELDS);
 
-  const { isLoading, validEmail } = useStores(state => ({
-    isLoading: state.isLoading,
+  const { validEmail } = useStores(state => ({
     validEmail: state.validEmail
   }), shallow);
 
@@ -74,7 +73,6 @@ export default function Login() {
               color="primary"
               size="lg"
               fullWidth
-              disabled={isLoading}
             >
               Iniciar sesión
             </ContainedButton>

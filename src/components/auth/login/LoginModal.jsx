@@ -90,10 +90,12 @@ export default function LoginModal(props) {
           name="loginPassword"
           onChange={handleInputLoginChange}
           required
+          autoFocus
         />
         <Space mt="15" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
+            type="button"
             color="primary"
             onClick={closeLoginForm}
           >
@@ -129,6 +131,7 @@ export default function LoginModal(props) {
           name="registerUsername"
           onChange={handleInputRegisterChange}
           required
+          autoFocus
         />
         <Space mt="10" />
         <FlexContainer flex>

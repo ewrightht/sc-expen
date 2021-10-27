@@ -56,7 +56,13 @@ export const ModalDescription = styled.p`
 `;
 
 export default function Modal(props) {
-  const { children, showModal, setShowModal, size, onClose } = props;
+  const {
+    children,
+    showModal,
+    setShowModal,
+    size,
+    onClose = () => { }
+  } = props;
   const modalRef = useRef();
 
   function handleCloseModal(event) {
