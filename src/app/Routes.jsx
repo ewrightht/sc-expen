@@ -8,8 +8,12 @@ import { Loader } from "../styled/Loader";
 
 const Login = lazy(() => import("../components/auth/login/Login"));
 import Main from "../components/main/Main";
+import { useStores } from "../stores/useStores";
 
 export default function Routes() {
+  const isAuthenticated = useStores(state => state.isAuthenticated);
+
+  console.log(isAuthenticated);
 
   function renderUI() {
     return (
@@ -20,6 +24,7 @@ export default function Routes() {
               exact
               from={routes.root}
               to={routes.login}
+              isAuthenticated={isAuthenticated}
             />
             <Route exact path={routes.login} component={Login} />
             <PrivateRoute path={routes.main} component={Main} />

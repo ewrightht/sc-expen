@@ -94,5 +94,4 @@ export default function Modal(props) {
 
 Modal.propTypes = {
   showModal: PropTypes.bool.isRequired,
-  setShowModal: PropTypes.func.isRequired
 };
