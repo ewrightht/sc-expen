@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import PrivateRoute from "./routeComponents/PrivateRoute";
@@ -11,9 +11,21 @@ import Main from "../components/main/Main";
 import { useStores } from "../stores/useStores";
 
 export default function Routes() {
-  const isAuthenticated = useStores(state => state.isAuthenticated);
+  const { checkAuthentication, isAuthenticated, isChecking } = useStores(state => ({
+    checkAuthentication: state.checkAuthentication,
+    isAuthenticated: state.isAuthenticated,
+    isChecking: state.isChecking
+  }));
 
-  console.log(isAuthenticated);
+  useEffect(() => {
+    (async function () {
+      await checkAuthentication();
+    })()
+  }, []);
+
+  if (isChecking) {
+    return <Loader />;
+  }
 
   function renderUI() {
     return (
@@ -24,10 +36,13 @@ export default function Routes() {
               exact
               from={routes.root}
               to={routes.login}
-              isAuthenticated={isAuthenticated}
             />
             <Route exact path={routes.login} component={Login} />
-            <PrivateRoute path={routes.main} component={Main} />
+            <PrivateRoute
+              path={routes.main}
+              component={Main}
+              isAuthenticated={isAuthenticated}
+            />
           </Switch>
         </Suspense>
       </BrowserRouter>

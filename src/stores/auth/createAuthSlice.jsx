@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 export const createAuthSlice = (set, get) => ({
   user: null,
+  isChecking: true,
   isAuthenticated: false,
 
   validEmail: async function (email) {
@@ -54,8 +55,8 @@ export const createAuthSlice = (set, get) => ({
 
   checkAuthentication: async function () {
     const token = localStorage.getItem("token") || "";
-    let absoluteUrl = "http://localhost:5000/api/renew";
-    let { data } = axios.get(absoluteUrl, {
+    let absoluteUrl = "http://localhost:5000/api/auth/renew";
+    let { data } = await axios.get(absoluteUrl, {
       headers: {
         'x-token': token
       }
@@ -63,6 +64,7 @@ export const createAuthSlice = (set, get) => ({
 
     if (data.status === "ok") {
       localStorage.setItem("token", data.token);
+      set({ isChecking: false, isAuthenticated: true });
     }
 
   }

@@ -156,6 +156,7 @@ export default function LoginModal(props) {
         <Space mt="20" />
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
+            type="button"
             color="primary"
             onClick={closeLoginForm}
           >
