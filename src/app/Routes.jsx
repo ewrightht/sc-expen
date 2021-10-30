@@ -2,11 +2,12 @@ import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
 import PrivateRoute from "./routeComponents/PrivateRoute";
+import PublicRoute from "./routeComponents/PublicRoute";
 import routes from "../constants/routes";
 
 import { Loader } from "../styled/Loader";
 
-const Login = lazy(() => import("../components/auth/login/Login"));
+import Login from "../components/auth/login/Login";
 import Main from "../components/main/Main";
 import { useStores } from "../stores/useStores";
 
@@ -18,9 +19,7 @@ export default function Routes() {
   }));
 
   useEffect(() => {
-    (async function () {
-      await checkAuthentication();
-    })()
+    checkAuthentication();
   }, []);
 
   if (isChecking) {
@@ -37,7 +36,11 @@ export default function Routes() {
               from={routes.root}
               to={routes.login}
             />
-            <Route exact path={routes.login} component={Login} />
+            <PublicRoute
+              path={routes.login}
+              component={Login}
+              isAuthenticated={isAuthenticated}
+            />
             <PrivateRoute
               path={routes.main}
               component={Main}
