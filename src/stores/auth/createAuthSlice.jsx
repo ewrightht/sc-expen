@@ -20,7 +20,7 @@ export const createAuthSlice = (set, get) => ({
       localStorage.setItem("token", data.token);
       set({
         user: { uid: data.user.user_id, username },
-        authenticated: true
+        isAuthenticated: true
       });
       toast.success(data.message);
     }
@@ -41,7 +41,8 @@ export const createAuthSlice = (set, get) => ({
       localStorage.setItem("token", data.token);
       set({
         user: { uid: data.user.user_id, username: data.user.user_name },
-        authenticated: true
+        isAuthenticated: true,
+        isChecking: false
       });
       toast.success(data.message);
     }
@@ -58,13 +59,18 @@ export const createAuthSlice = (set, get) => ({
     let absoluteUrl = "http://localhost:5000/api/auth/renew";
     let { data } = await axios.get(absoluteUrl, {
       headers: {
-        'x-token': token
+        "x-token": token
       }
     });
 
     if (data.status === "ok") {
       localStorage.setItem("token", data.token);
       set({ isChecking: false, isAuthenticated: true });
+    }
+
+    if (data.status === "error") {
+      toast.error(data.message);
+      set({ isChecking: false, isAuthenticated: false });
     }
 
   }
