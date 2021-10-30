@@ -1,12 +1,12 @@
-import React, { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
+import { BrowserRouter, Switch, Redirect } from "react-router-dom";
+import shallow from "zustand/shallow";
 
 import PrivateRoute from "./routeComponents/PrivateRoute";
 import PublicRoute from "./routeComponents/PublicRoute";
 import routes from "../constants/routes";
 
 import { Loader } from "../styled/Loader";
-
 import Login from "../components/auth/login/Login";
 import Main from "../components/main/Main";
 import { useStores } from "../stores/useStores";
@@ -16,7 +16,7 @@ export default function Routes() {
     checkAuthentication: state.checkAuthentication,
     isAuthenticated: state.isAuthenticated,
     isChecking: state.isChecking
-  }));
+  }), shallow);
 
   useEffect(() => {
     checkAuthentication();
