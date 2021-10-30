@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import routes from "../../../../constants/routes";
 import { useStores } from "../../../../stores/useStores";
 
 import { FlexContainer } from "../../../../styled/Container";
@@ -22,14 +23,14 @@ export default function Menubar() {
     return (
       <MenubarContainer>
         <FlexContainer fluid flex color="primary">
-          <MenubarItem to="/main/dashboard" activeClassName="active">
+          <MenubarItem to={routes.dashboard} activeClassName="active">
             <i className="fas fa-home"></i>
           </MenubarItem>
         </FlexContainer>
         <MenubarItem to="/main/settings" activeClassName="active">
           <i className="fas fa-cog"></i>
         </MenubarItem>
-        <MenubarItem to="/login" activeClassName="active" onClick={logoutUser}>
+        <MenubarItem to={routes.login} activeClassName="active" onClick={logoutUser}>
           <i className="fas fa-sign-out-alt"></i>
         </MenubarItem>
       </MenubarContainer >
