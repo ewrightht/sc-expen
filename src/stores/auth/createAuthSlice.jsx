@@ -54,6 +54,15 @@ export const createAuthSlice = (set, get) => ({
     }
   },
 
+  logoutUser: function () {
+    localStorage.clear();
+    set({
+      user: null,
+      isAuthenticated: false,
+      isChecking: false
+    });
+  },
+
   checkAuthentication: async function () {
     const token = localStorage.getItem("token") || "";
     let absoluteUrl = "http://localhost:5000/api/auth/renew";
