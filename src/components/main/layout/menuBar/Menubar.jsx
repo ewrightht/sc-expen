@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useStores } from "../../../../stores/useStores";
 
 import { FlexContainer } from "../../../../styled/Container";
 import MenubarItem from "./MenubarItem";
@@ -13,6 +14,9 @@ const MenubarContainer = styled.div`
 `;
 
 export default function Menubar() {
+  const { logoutUser } = useStores((state) => ({
+    logoutUser: state.logoutUser
+  }));
 
   function renderUI() {
     return (
@@ -25,7 +29,7 @@ export default function Menubar() {
         <MenubarItem to="/main/settings" activeClassName="active">
           <i className="fas fa-cog"></i>
         </MenubarItem>
-        <MenubarItem to="/login" activeClassName="active">
+        <MenubarItem to="/login" activeClassName="active" onClick={logoutUser}>
           <i className="fas fa-sign-out-alt"></i>
         </MenubarItem>
       </MenubarContainer >
