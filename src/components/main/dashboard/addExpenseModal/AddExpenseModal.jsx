@@ -12,8 +12,8 @@ export default function AddExpenseModal(props) {
     return (
       <Modal
         showModal={showModal.visible}
+        setShowModal={setShowModal}
         size="sm"
-        onClose={() => setShowModal(false)}
       >
         <ModalTitle>Agregar un nuevo gasto</ModalTitle>
         <Space mt="10" />

@@ -12,8 +12,8 @@ export default function AddBalanceModal(props) {
     return (
       <Modal
         showModal={showModal.visible}
+        setShowModal={setShowModal}
         size="sm"
-        onClose={() => setShowModal({ visible: false })}
       >
         <ModalTitle>Agregar un nuevo balance</ModalTitle>
         <Space mt="10" />
