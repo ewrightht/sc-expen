@@ -179,7 +179,7 @@ export default function LoginModal(props) {
       <Modal
         showModal={showModal.visible}
         setShowModal={setShowModal}
-        size="md"
+        size="sm"
       >
         {showModal.account === "NEW" && renderNoRegisteredUser()}
         {showModal.account === "EXIST" && renderLoginUser()}
