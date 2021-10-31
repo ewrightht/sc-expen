@@ -54,7 +54,7 @@ export default function Login() {
           </FlexContainer>
           <Space mt="20" />
           <Typography centered size="1.5" weight="700">
-            Monitorea tu dinero y empieza a ahorrar con nosotros.
+            Mantén el control de tu dinero y empieza a ahorrar con nosotros.
           </Typography>
           <Space mt="15" />
           <form onSubmit={handleSubmit}>
