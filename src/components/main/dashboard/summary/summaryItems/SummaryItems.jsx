@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
+import shallow from "zustand/shallow";
 import styled from "styled-components";
 
 import { FlexContainer } from "../../../../../styled/Container";
 import { Space } from "../../../../../styled/Space";
 import { Typography } from "../../../../../styled/Typography";
+
+import { useStores } from "../../../../../stores/useStores";
 
 const SummaryItem = styled.div`
   display: flex;
@@ -16,13 +19,24 @@ const SummaryItem = styled.div`
 `;
 
 export default function SummaryItems() {
+  const { user, getUserBalance, userBalance } = useStores((state) => ({
+    getUserBalance: state.getUserBalance,
+    userBalance: state.userBalance,
+    user: state.user
+  }), shallow);
+
+  useEffect(function () {
+    (async function () {
+      await getUserBalance(user.uid);
+    })();
+  }, [user]);
 
   function renderUI() {
     return (
       <FlexContainer flex alignItems="center">
         <SummaryItem>
           <Typography size="1.5" weight="600">
-            $370000
+            ${userBalance}
           </Typography>
           <Space mt="2" />
           <Typography weight="400">
