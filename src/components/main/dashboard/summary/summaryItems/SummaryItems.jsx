@@ -22,11 +22,10 @@ export default function SummaryItems() {
   const { user, getUserBalance, userBalance } = useStores((state) => ({
     getUserBalance: state.getUserBalance,
     userBalance: state.userBalance,
-    user: state.user
   }), shallow);
 
   useEffect(function () {
-    getUserBalance(user.uid);
+    getUserBalance();
   }, [user]);
 
   function renderUI() {
@@ -34,7 +33,7 @@ export default function SummaryItems() {
       <FlexContainer flex alignItems="center">
         <SummaryItem>
           <Typography size="1.5" weight="600">
-            ${userBalance}
+            ${userBalance ? userBalance : 0}
           </Typography>
           <Space mt="2" />
           <Typography weight="400">
