@@ -1,30 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
+import shallow from "zustand/shallow";
+
 import { Table } from "../../../../../styled/Table";
 import { Space } from "../../../../../styled/Space";
 import { Badge } from "../../../../../styled/Badge";
+import { Loader } from "../../../../../styled/Loader";
+
+import { useStores } from "../../../../../stores/useStores";
 
 export default function SummaryTable() {
+  const { activities, getAllActivities } = useStores((state) => ({
+    activities: state.activities,
+    getAllActivities: state.getAllActivities
+  }), shallow);
 
-  function renderTableRow(desc, value, category, date) {
-    return (
-      <tr>
+  useEffect(() => {
+    getAllActivities();
+  }, [activities]);
+
+  function renderTableRow() {
+    return activities.map((activity) => (
+      <tr key={activity.activity_id}>
         <td>
           <span>
             <i className="far fa-file-alt fa-lg"></i>
             <Space ml="20" />
-            <span>{desc}</span>
+            <span>{activity.activity_desc}</span>
           </span>
         </td>
         <td></td>
-        <td>${value}</td>
+        <td>${activity.activity_ammount}</td>
         <td>
           <Badge>
-            {category}
+            {activity.activity_category}
           </Badge>
         </td>
-        <td>{date}</td>
+        <td>10/10/21</td>
       </tr>
-    );
+    ));
   }
 
   function renderUI() {
@@ -39,16 +52,13 @@ export default function SummaryTable() {
           </tr>
         </thead>
         <tbody>
-          {renderTableRow("Hamburguesa", "12000", "comida", "10/12/2021")}
-          {renderTableRow("Camiseta", "10000", "ropa", "10/12/2021")}
-          {renderTableRow("Mantenimiento", "200000", "vehiculo", "10/12/2021")}
-          {renderTableRow("Forro de celular", "15000", "food", "10/12/2021")}
-          {renderTableRow("Memoria Ssd", "157000", "computador", "10/12/2021")}
-          {renderTableRow("Almuerzo", "11300", "food", "10/12/2021")}
+          {renderTableRow()}
         </tbody>
       </Table>
     );
   }
+
+  if (!activities) return <Loader />
 
   return renderUI();
 }
