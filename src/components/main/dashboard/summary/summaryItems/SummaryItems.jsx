@@ -26,9 +26,7 @@ export default function SummaryItems() {
   }), shallow);
 
   useEffect(function () {
-    (async function () {
-      await getUserBalance(user.uid);
-    })();
+    getUserBalance(user.uid);
   }, [user]);
 
   function renderUI() {
