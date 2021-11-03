@@ -38,7 +38,7 @@ export default function AddBalanceModal(props) {
         <FlexContainer fluid justifyContent="end">
           <OutlinedButton
             color="primary"
-            onClick={() => setShowModal(false)}
+            onClick={() => setShowModal({ visible: false })}
           >
             Cancelar
           </OutlinedButton>

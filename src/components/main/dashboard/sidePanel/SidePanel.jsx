@@ -6,6 +6,8 @@ import { Space } from "../../../../styled/Space";
 import { List, ListItem } from "../../../../styled/List";
 import routes from "../../../../constants/routes";
 
+import { useStores } from "../../../../stores/useStores";
+
 const SidePanelContainer = styled.div`
   width: 280px;
   height: 100vh;
@@ -14,6 +16,9 @@ const SidePanelContainer = styled.div`
 `;
 
 export default function SidePanel() {
+  const { user } = useStores((state) => ({
+    user: state.user,
+  }));
 
   const listItems = [
     { title: "Resumen", route: routes.dashboardSummary, icon: "stream" },
@@ -43,7 +48,7 @@ export default function SidePanel() {
     return (
       <SidePanelContainer>
         <Typography weight="700" size="1.2">
-          Xpen App
+          Xpen App - {user.username}
         </Typography>
         <Space mt="30" />
         {renderList()}

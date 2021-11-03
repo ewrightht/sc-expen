@@ -74,7 +74,7 @@ export const createAuthSlice = (set, get) => ({
 
     if (data.status === "ok") {
       localStorage.setItem("token", data.token);
-      set({ isChecking: false, isAuthenticated: true });
+      set({ user: data.user, isChecking: false, isAuthenticated: true });
     }
 
     if (data.status === "error") {
