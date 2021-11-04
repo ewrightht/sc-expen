@@ -59,7 +59,8 @@ export const createAuthSlice = (set, get) => ({
     set({
       user: null,
       isAuthenticated: false,
-      isChecking: false
+      isChecking: false,
+      activities: [],
     });
   },
 
