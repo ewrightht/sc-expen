@@ -19,14 +19,19 @@ const SummaryItem = styled.div`
 `;
 
 export default function SummaryItems() {
-  const { user, getUserBalance, userBalance } = useStores((state) => ({
-    getUserBalance: state.getUserBalance,
+  const { activities, getUserStats, userBalance, totalExpenses, totalExpensesAmount } = useStores((state) => ({
+    getUserStats: state.getUserStats,
     userBalance: state.userBalance,
+    totalExpenses: state.totalExpenses,
+    totalExpensesAmount: state.totalExpensesAmount,
+    activities: state.activities
   }), shallow);
 
   useEffect(function () {
-    getUserBalance();
-  }, [user]);
+    (async function () {
+      await getUserStats();
+    })();
+  }, []);
 
   function renderUI() {
     return (
@@ -43,7 +48,7 @@ export default function SummaryItems() {
         <Space ml="15" />
         <SummaryItem>
           <Typography size="1.5" weight="600">
-            62
+            {totalExpenses}
           </Typography>
           <Space mt="2" />
           <Typography weight="400">
@@ -53,7 +58,7 @@ export default function SummaryItems() {
         <Space ml="15" />
         <SummaryItem>
           <Typography size="1.5" weight="600">
-            $865700
+            ${totalExpensesAmount}
           </Typography>
           <Space mt="2" />
           <Typography weight="400">

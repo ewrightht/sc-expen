@@ -4,52 +4,48 @@ import shallow from "zustand/shallow";
 import { Badge } from "../../../../../styled/Badge";
 import { Space } from "../../../../../styled/Space";
 import { Table } from "../../../../../styled/Table";
+import { Loader } from "../../../../../styled/Loader";
 
 import { useStores } from "../../../../../stores/useStores";
+import moment from "moment";
 
 export default function ExpensesTable() {
-  const { isLoading, expenses, getExpenses } = useStores(state => ({
-    isLoading: state.isLoading,
+  const { expenses, getAllExpenses } = useStores(state => ({
+    getAllExpenses: state.getAllExpenses,
     expenses: state.expenses,
-    getExpenses: state.getExpenses
   }), shallow);
 
-  async function fetchExpenses() {
-    await getExpenses();
-  }
-
   useEffect(function () {
-    fetchExpenses();
+    (async function () {
+      await getAllExpenses();
+    })();
   }, []);
 
   function renderTableRow() {
     return expenses.map((expense) => {
-      let { id, name, color, pantone_value, year } = expense;
-
       return (
-        <tr key={id}>
+        <tr key={expense.activity_id}>
           <td>
             <span>
               <i className="far fa-file-alt fa-lg"></i>
               <Space ml="20" />
-              <span>{name}</span>
+              <span>{expense.activity_desc}</span>
             </span>
           </td>
           <td></td>
-          <td>${pantone_value}</td>
+          <td>${expense.activity_amount}</td>
           <td>
-            <Badge color={color}>
-              {name}
+            <Badge>
+              {expense.activity_category}
             </Badge>
           </td>
-          <td>{year}</td>
+          <td>{moment(expense.activity_date).format("DD/MM/yyyy")}</td>
         </tr>
       );
     });
   }
 
   function renderUI() {
-    if (isLoading) return <h2>Loading...</h2>
     return (
       <Table>
         <thead>
@@ -66,5 +62,7 @@ export default function ExpensesTable() {
       </Table>
     );
   }
+  if (!expenses) return <Loader />
+
   return renderUI();
 }

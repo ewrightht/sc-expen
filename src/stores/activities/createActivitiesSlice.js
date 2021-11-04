@@ -4,19 +4,27 @@ import { setHeaders } from "../../helpers/setHeaders";
 
 export const createActivitiesSlice = (set, get) => ({
   userBalance: null,
+  totalExpenses: 0,
+  totalExpensesAmount: 0,
   activities: [],
+  expenses: [],
 
-  getUserBalance: async function () {
-    let absoluteUrl = "http://localhost:5000/api/activities/get-balance";
+  getUserStats: async function () {
+    let absoluteUrl = "http://localhost:5000/api/activities/stats";
     let headers = setHeaders();
-    let { data } = await axios.get(absoluteUrl, { headers });
+    let { data: serviceData } = await axios.get(absoluteUrl, { headers });
 
-    if (data.status === "ok") {
-      set({ userBalance: data.user.user_balance });
+    const { status, user, message } = serviceData;
+    if (status === "ok") {
+      set({
+        userBalance: user.user_balance,
+        totalExpenses: user.user_total_expenses,
+        totalExpensesAmount: user.user_total_amount
+      });
     }
 
-    if (data.status === "error") {
-      toast.error(data.message);
+    if (status === "error") {
+      toast.error(message);
     }
   },
 
@@ -44,9 +52,24 @@ export const createActivitiesSlice = (set, get) => ({
     if (data.status === "ok") {
       toast.success(data.message);
     }
-    
+
     if (data.status === "error") {
       toast.error(data.message);
+    }
+  },
+
+  getAllExpenses: async function () {
+    let absoluteUrl = "http://localhost:5000/api/activities/expenses";
+    let headers = setHeaders();
+    let { data: serviceData } = await axios.get(absoluteUrl, { headers });
+
+    const { status, data, message } = serviceData;
+    if (status === "ok") {
+      set({ expenses: data.expenses });
+    }
+
+    if (status === "error") {
+      toast.error(message);
     }
   }
 });
