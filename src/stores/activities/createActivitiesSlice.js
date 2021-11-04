@@ -32,5 +32,21 @@ export const createActivitiesSlice = (set, get) => ({
     if (data.status === "error") {
       toast.error(data.data.message);
     }
+  },
+
+  createExpenseActivity: async function (description, amount, category) {
+    let absoluteUrl = "http://localhost:5000/api/activities/expense";
+    let headers = setHeaders();
+    let { data } = await axios.post(
+      absoluteUrl, { description, amount, category }, { headers }
+    );
+
+    if (data.status === "ok") {
+      toast.success(data.message);
+    }
+    
+    if (data.status === "error") {
+      toast.error(data.message);
+    }
   }
 });
