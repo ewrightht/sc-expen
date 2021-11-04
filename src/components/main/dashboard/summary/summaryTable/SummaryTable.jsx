@@ -30,7 +30,7 @@ export default function SummaryTable() {
           </span>
         </td>
         <td></td>
-        <td>${activity.activity_ammount}</td>
+        <td>${activity.activity_amount}</td>
         <td>
           <Badge>
             {activity.activity_category}
