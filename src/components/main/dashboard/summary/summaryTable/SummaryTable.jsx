@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import shallow from "zustand/shallow";
+import moment from "moment";
 
 import { Table } from "../../../../../styled/Table";
 import { Space } from "../../../../../styled/Space";
@@ -16,7 +17,9 @@ export default function SummaryTable() {
   }), shallow);
 
   useEffect(() => {
-    getAllActivities();
+    (async function () {
+      await getAllActivities();
+    })();
   }, [activities]);
 
   function renderTableRow() {
@@ -36,7 +39,7 @@ export default function SummaryTable() {
             {activity.activity_category}
           </Badge>
         </td>
-        <td>10/10/21</td>
+        <td>{moment(activity.activity_date).format('DD/MM/yyyy')}</td>
       </tr>
     ));
   }
