@@ -16,7 +16,7 @@ export const createActivitiesSlice = (set, get) => ({
     }
 
     if (data.status === "error") {
-      toast.error(data.data.message);
+      toast.error(data.message);
     }
   },
 
@@ -30,7 +30,7 @@ export const createActivitiesSlice = (set, get) => ({
     }
 
     if (data.status === "error") {
-      toast.error(data.data.message);
+      toast.error(data.message);
     }
   },
 
