@@ -5,6 +5,7 @@ import { Table } from "../../../../../styled/Table";
 import { Space } from "../../../../../styled/Space";
 import { Badge } from "../../../../../styled/Badge";
 import { Loader } from "../../../../../styled/Loader";
+import { Typography } from "../../../../../styled/Typography";
 
 import { useStores } from "../../../../../stores/useStores";
 
@@ -52,13 +53,19 @@ export default function SummaryTable() {
           </tr>
         </thead>
         <tbody>
-          {renderTableRow()}
+          {activities.length > 0 ? renderTableRow() : (
+            <tr>
+              <td colSpan="5">
+                <Typography>No hay actividad reciente.</Typography>
+              </td>
+            </tr>
+          )}
         </tbody>
       </Table>
     );
   }
 
-  if (!activities) return <Loader />
+  if (!activities) return <Loader />;
 
   return renderUI();
 }
