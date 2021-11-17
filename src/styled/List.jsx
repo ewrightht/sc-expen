@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { darken } from "polished";
+import { darken, rgba } from "polished";
 
 export const List = styled.div`
   flex: 1;
@@ -25,10 +25,10 @@ export const ListItem = styled(NavLink)`
     > * {
       color: ${props => props.theme.palette.primary};
     }
-    background: ${(props) => darken(0.04, props.theme.palette.light)};
+    background: ${(props) => rgba(props.theme.palette.light, 1)};
   }
 
   &:hover {
-    background: ${(props) => darken(0.04, props.theme.palette.light)};
+    background: ${(props) => rgba(props.theme.palette.light, 1)};
   }
 `;

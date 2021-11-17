@@ -15,7 +15,8 @@ const SummaryItem = styled.div`
   flex-direction: column;
   padding: 20px;
   border-radius: ${props => props.theme.borderRadius};
-  background: ${props => props.theme.palette.light};
+  background: ${props => props.theme.palette.white};
+  box-shadow: ${props => props.theme.boxShadow};
 `;
 
 export default function SummaryItems() {

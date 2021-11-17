@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { darken, lighten } from "polished";
+import { darken, lighten, rgba } from "polished";
 
 export const Button = styled.button`
   border: 1px solid transparent;
@@ -16,7 +16,7 @@ export const Button = styled.button`
       props.theme.components.button.size.sm};
   border-radius: ${props => props.theme.borderRadius};
   font-weight: 600;
-  background: ${props => lighten(0.7, props.theme.palette.primary)};
+  background: ${props => rgba(props.theme.palette.primary, 0.1)};
   width: ${props => props.fullWidth && "100%"};
   color: ${props => props.theme.palette.primary};
   font-size: ${props => props.theme.components.button.fontSize};

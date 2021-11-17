@@ -12,7 +12,7 @@ const SidePanelContainer = styled.div`
   width: 280px;
   height: 100vh;
   padding: 20px 15px;
-  background: ${props => props.theme.palette.light};
+  background: ${props => props.theme.palette.white};
 `;
 
 export default function SidePanel() {

@@ -5,7 +5,7 @@ const theme = {
     danger: "#f53b57",
     warning: "#ffc048",
     success: "#59c649",
-    light: "#F2F3F5",
+    light: "#F3F2F1",
     gray: "#777777",
     dark: "#303132",
     white: "#ffffff",
@@ -50,8 +50,8 @@ const theme = {
       }
     }
   },
-  borderRadius: "0.3rem",
-  boxShadow: "0px 3px 5px rgba(0, 0, 0, 0.2)"
+  borderRadius: "0.25rem",
+  boxShadow: "0px 3px 3px rgba(150, 150, 150, 0.2)"
 };
 
 export default Object.freeze(theme);

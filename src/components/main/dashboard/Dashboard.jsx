@@ -27,7 +27,7 @@ export default function Dashboard() {
     return (
       <>
         <SidePanel />
-        <FlexContainer fluid flex style={{ overflowY: "auto" }}>
+        <FlexContainer fluid flex style={{ overflowY: "auto" }} color="light">
           <Suspense fallback={<Loader />}>
             <Switch>
               <Redirect
