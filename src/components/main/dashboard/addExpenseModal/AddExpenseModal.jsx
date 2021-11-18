@@ -18,8 +18,9 @@ const INITIAL_VALUES = {
 
 export default function AddExpenseModal(props) {
   const { showModal, setShowModal } = props;
-  const { createExpenseActivity } = useStores((state) => ({
-    createExpenseActivity: state.createExpenseActivity
+  const { createExpenseActivity, getUserStats } = useStores((state) => ({
+    createExpenseActivity: state.createExpenseActivity,
+    getUserStats: state.getUserStats
   }), shallow);
   const [formValues, handleInputChange, resetFields] = useForm(INITIAL_VALUES);
 
@@ -36,6 +37,7 @@ export default function AddExpenseModal(props) {
 
     createExpenseActivity(expense_desc, expense_amount, expense_category);
     handleCloseModal();
+    getUserStats();
   }
 
   function renderUI() {
